@@ -1,0 +1,47 @@
+<main class="login-main">
+    <section class="left">
+        <img src="media/images/login.jpg" alt="">
+    </section>
+    <section class="right">
+        <div>
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"><img class="logo"  src="media/images/Logo.png" alt=""></a>
+        </div>
+        <div>
+            <h1>Bienvenue parmi nous!</h1>
+            <p class="mb-6 text-center text-gray-500">Entrez les information pour la création de votre compte</p>
+            <form action="/dashboard" method="post">
+                <div class="form-row">
+                    <div class="w-full px-2">
+                        <label class="font-semibold mb-1" for="email">Nom d'utilisateur</label>
+                        <input type="text" name="username" id="username" placeholder="koffi_masta">
+                    </div>
+                    <div class="w-full px-2">
+                        <label class="font-semibold mb-1" for="password">Email</label>
+                        <input type="email" name="email" id="email" placeholder="********">    
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="w-full px-2">
+                        <label class="font-semibold mb-1" for="email">Mot de passe</label>
+                        <input type="password" name="password" id="password" placeholder="********">
+                    </div>
+                    <div class="w-full px-2">
+                        <label class="font-semibold mb-1" for="password-confirm">Confirmation du mot de passe</label>
+                        <input type="password" name="password-confirm" id="password-confirm" placeholder="********">    
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="w-full px-2 block">
+                        <label class="font-semibold mb-1" for="user-type">Je suis</label>
+                        <select class="user-type" name="user-type" id="user-type">
+                            <option value="">A la recherche de prestataire</option>
+                            <option value="fr">A la recherche de client</option>
+                        </select>  
+                    </div>
+                </div>
+                <button class="btn-link btn-submit" type="submit">S'inscrire</button>
+            </form>
+        </div>
+        <p class="register-text">Vous n'etes pas encore inscris ? <a routerLink="/login">inscrivez vous</a ></p>
+    </section>
+</main>

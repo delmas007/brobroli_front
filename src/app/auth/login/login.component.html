@@ -1,0 +1,32 @@
+<main class="login-main">
+    <section class="left">
+        <img src="media/images/login.jpg" alt="">
+    </section>
+    <section class="right">
+        <div>
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"><img class="logo"  src="media/images/Logo.png" alt=""></a>
+        </div>
+        <div>
+            <h1>Bon retour parmis nous !</h1>
+            <p class="mb-6 text-center text-gray-500">Entrez votre nom utilisateur et votre mot de passe pour continuer</p>
+            <form action="/dashboard" method="post">
+                <div class="form-inputs">
+                    <label class="font-semibold mb-1" for="email">Nom d'utilisateur</label>
+                    <input type="email" name="email" id="email" placeholder="koffi_masta">
+                    <label class="font-semibold mb-1" for="password">Mot de passe</label>
+                    <input type="password" name="password" id="password" placeholder="********">
+                </div>
+                <div class="flex justify-between items-center mb-6">
+                    <div class="remember-me-container">
+                        <input type="checkbox" name="remember" id="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
+                    <a class="text-forget-mdp" href="http://">Mot de passe oublié</a>
+                </div>
+                <button class="btn-link btn-submit" type="submit">Se connecter</button>
+            </form>
+        </div>
+        <p class="register-text">Vous n'etes pas encore inscris ? <a routerLink="/register">inscrivez vous</a ></p>
+
+    </section>
+</main>

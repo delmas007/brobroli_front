@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<div class="hero">
+  <div class="overlay-hero"></div>
+  <div class="hero-left">
+      <img loading="lazy"  src="media/images/hero1.jpg" alt="hero1">
+  </div>
+  <div class="hero-right">
+      <h1>Trouver des <span class="main-color">freelancers</span> qualifié pour vos taches</h1>
+      <div class="search-container">
+        <div class="select-container">
+          <img src="media/images/travailleur-96.png" alt="" >
+          <div class="select-objet">
+            <label for="service">Type de service</label>
+            <select  name="service" id="service">
+              <option value="developpement-application">Développement d'application</option>
+              <option value="photographie">Photographie</option>
+              <option value="montage video">Montage vidéo</option>
+              <option value="design graphique">Design graphique</option>
+              <option value="creation site web">Création de site web</option>
+              <option value="developpement mobile">Développement mobile</option>              
+            </select>
+          </div>
+        </div>
+        <div class="select-container select2">
+          <img src="media/images/money-96.png" alt="" >
+          <div class="select-objet">
+            <label for="service">Tranche de prix</label>
+            <select  name="service" id="service">
+              <option value="developpement-application">25k-100k</option>
+              <option value="photographie">100k-300k</option>
+              <option value="montage video">300k-600k</option>
+              <option value="design graphique">600k-1M</option>             
+            </select>
+          </div>
+        </div>
+          <button type="submit"><img class="icon-search" src="media/images/icon-search.png" alt=""></button>
+      </div>
+      <div class="skill-marquee-container">
+        <span class="skill-marquee-title">Réseaux de services</span>
+        <div class="flex">
+          <div class="marquee">
+            <img loading="lazy" src="media/images/atos.png" alt="">
+            <img loading="lazy" src="media/images/emploie-jeune.png" alt="">
+            <img loading="lazy" src="media/images/orange.png" alt="">
+            <img loading="lazy" src="media/images/cie.jpg" alt="">
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<section class="section-1">
+
+  <div class="title-container flex justify-between items-center flex-wrap">
+    <div data-aos="fade-right" data-aos-duration="200" data-aos-offset="100">
+      <h1>Services proposée</h1>
+      <p>Explorer les services proposer par les différent freelancers de la plateforme.</p>
+    </div>
+    <a data-aos="fade-left" data-aos-duration="200" data-aos-offset="100" class="btn-link" routerLink="/services" >Voir les services</a>
+  </div>
+  <div class="card-grid">
+    
+    <div class="card card-1">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <span class="card-title">Creation d'application web</span>
+        <div class="flex justify-end w-full">
+          <a class="service btn-link" href="http://">Découvrir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-2">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <span class="card-title">Creation d'affiche et de logo</span>
+        <div class="flex justify-end w-full">
+          <a class="service btn-link" href="http://">Découvrir</a>
+        </div>
+      </div>
+    </div>
+
+    <div  class="card card-3">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <span class="card-title">Montage vidéo</span>
+        <div class="flex justify-end w-full">
+          <a class="service btn-link" href="http://">Découvrir</a>
+        </div>
+      </div>
+    </div>
+    <div class="card card-4">
+      <div class="card-overlay"></div>
+      <div class="card-content">
+        <span class="card-title">Couverture photographique</span>
+        <div class="flex justify-end w-full">
+          <a class="service btn-link" href="http://">Découvrir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
