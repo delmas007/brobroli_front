@@ -1,0 +1,20 @@
+.bell{
+    width: 25px;
+    height: auto;
+}
+section .dashboard{
+    border-radius: 15px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 1rem;
+}
+section .dashboard.dash-card1{
+
+}
+.dashboard .freelancer{
+    width: 180px;
+    height: auto;
+}
+.dashboard .wallet{
+    width: 150px;
+    height: auto;
+}
