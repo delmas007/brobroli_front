@@ -282,8 +282,6 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .card h5{ font-size: 15px!important;    }
     .card h4{ font-size: 15px!important;    }
     .stars-container .star{height: 13px !important;}
-
-
 }
 
 @media only screen and (max-width: 480px) {
@@ -299,7 +297,4 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .stars-container .star{height: 8px !important;}
     .dash-section-2 .card.card3{display: none !important;}
     .dash-section-responsive{display: flex !important;}
-
-
-
 }
