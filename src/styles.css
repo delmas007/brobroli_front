@@ -256,9 +256,6 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .freelancer{display: none;}
     .dash-section-1 .card.right{width: 40% !important;}
     .dash-section-1 .card.right h3{font-size: 20px  !important; font-weight: 500 !important;}
-    .dash-section-2{
-    
-    }
 
 }
 @media only screen and (max-width:600px) {
@@ -298,8 +295,10 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .login-main{padding: 2rem !important;}
     .login-main  .right{padding: 1rem !important;}
     .hero{padding-left: 1rem; padding-right: 1rem;}
-    .dash-section-1,.dash-section-2,.dash-section-3{padding: 0.5rem !important;}
+    .dash-section-1,.dash-section-2,.dash-section-3,.dash-section-responsive{padding: 0.5rem !important;}
     .stars-container .star{height: 8px !important;}
+    .dash-section-2 .card.card3{display: none !important;}
+    .dash-section-responsive{display: flex !important;}
 
 
 
