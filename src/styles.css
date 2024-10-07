@@ -65,6 +65,8 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     border-radius: 17px;
     color: #fff;
     transition: all 0.3s ease-in;
+    display: flex;
+    justify-content: center;
 
 }
 .section-1 .title-container{
@@ -250,6 +252,11 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .hero-right{justify-content: space-evenly;}
     .title-container .btn-link{margin:1rem 0;}
     .skill-marquee-title{color: #fff !important;}
+    .dash-section-2 .card img{display: none !important;}
+    .dash-section-2{padding: 0 1rem}
+    .freelancer{display: none;}
+    .dash-section-1 .card.right{width: 40% !important;}
+    .dash-section-1 .card.right h3{font-size: 20px  !important; font-weight: 500 !important;}
 
 }
 
@@ -265,6 +272,9 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .login-main .right h1{font-size: 31px !important;}
     .remember-me-container label{font-size: 11px !important;}
     .text-forget-mdp{font-size: 11px !important;}
+    .dash-section-1 .card.right{width: 100% !important;}
+    .dash-section-1 .card.left{align-items: center !important;}
+    .dash-section-1,.dash-section-2,.dash-section-3{padding: 1rem !important;}
 }
 
 @media only screen and (max-width: 480px) {
@@ -276,5 +286,7 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .login-main{padding: 2rem !important;}
     .login-main  .right{padding: 1rem !important;}
     .hero{padding-left: 1rem; padding-right: 1rem;}
+    .dash-section-1,.dash-section-2,.dash-section-3{padding: 0.5rem !important;}
+
 
 }
