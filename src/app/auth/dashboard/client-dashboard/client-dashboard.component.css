@@ -9,7 +9,9 @@ main{
 
 .dash-section-1{
     display: flex;
-    padding:1rem 2rem;}
+    padding:1rem 2rem;
+    gap: 1rem;
+}
 .dash-section-1 .card{
     border-radius: 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -17,19 +19,55 @@ main{
 }
 .dash-section-1 .card.left{
     width: 100%;
-    margin: 0 0.5rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
+
 }
 .dash-section-1 .card.right{
     width: 30%;
-    margin: 0 0.5rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
 }
+.card-left-slide{display: none;}
+.card-left-slide.active{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+
+.point-slide{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:1rem;
+}
+.point-slide div{
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0.2rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+.point-slide div.current{
+    background-color: #14C0B7;
+}
+.dash-section-1-card-left-text{
+    font-size: 27px;
+}
+.dash-section-1-card-left-titre{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* .dash-section-card-left-1-btn-link{
+    width: 30%;
+} */
 .freelancer{
     width: auto;
     height: 200px;
@@ -74,7 +112,6 @@ main{
 .dash-section-2 .card .card-image,.dash-section-responsive .card .card-image{
     height: 70px;
     width: auto;
-    margin: 0 2rem;
 
 }
 .card  h4{
@@ -112,7 +149,10 @@ main{
     width: auto;
 
 }
-.dash-section-responsive{display: none;}
+.dash-section-responsive{
+    display: none;
+    padding:1rem 2rem 
+}
 .dash-section-responsive .card.card3{
     border-radius: 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;

@@ -252,11 +252,13 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .hero-right{justify-content: space-evenly;}
     .title-container .btn-link{margin:1rem 0;}
     .skill-marquee-title{color: #fff !important;}
-    .dash-section-2{padding: 0 1rem!important;gap: 0.5rem !important;}
+    .dash-section-2{padding: 0 2rem!important;gap: 0.5rem !important;}
     .freelancer{display: none;}
     .dash-section-1 .card.right{width: 40% !important;}
     .dash-section-1 .card.right h3{font-size: 20px  !important; font-weight: 500 !important;}
-
+    .dash-section-2 .card.card3{display: none !important;}
+    .dash-section-responsive{display: flex !important;}
+    .login-main .left{display: none !important;}
 }
 @media only screen and (max-width:600px) {
     .dash-section-2 .card{padding: 0.5rem !important;}
@@ -282,6 +284,7 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .card h5{ font-size: 15px!important;    }
     .card h4{ font-size: 15px!important;    }
     .stars-container .star{height: 13px !important;}
+    .dash-section-1-card-left-text{font-size: 12px!important; margin-bottom: 0 !important; text-align: center;}
 }
 
 @media only screen and (max-width: 480px) {
@@ -295,6 +298,5 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .hero{padding-left: 1rem; padding-right: 1rem;}
     .dash-section-1,.dash-section-2,.dash-section-3,.dash-section-responsive{padding: 0.5rem !important;}
     .stars-container .star{height: 8px !important;}
-    .dash-section-2 .card.card3{display: none !important;}
-    .dash-section-responsive{display: flex !important;}
+
 }

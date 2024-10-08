@@ -1,8 +1,7 @@
 <main>
     <div class="flex">
-        <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
-            <!-- Header -->
+
             <header class="bg-white  flex items-center justify-between p-4">
                 <a routerLink="/" class="flex items-center">
                     <img class="logo" src="media/images/Logo.png" alt="">
@@ -12,26 +11,36 @@
                         <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
                     </button>
                     <button class="flex items-center text-gray-700">
-                        <img loading="lazy" class="h-10 w-10 rounded-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="Profile picture">
+                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Profile picture">
                     </button>
                 </div>
             </header>
             
-            
             <section class="dash-section-1">
+                
                 <div class="card left">
-                    <img loading="lazy" class="freelancer" src="media/images/freelancer.png" alt="">
-                    <div class="flex flex-col justify-between h-full">
-                        <h3>Bonjour, Alias</h3>
-                        <p class="">Consultez les collaborations en attente sur votre profil.</p>
-                        <a class="btn-link" href="http://">Consulter</a>
+                    <div class="flex items-center justify-between">
+                        <img loading="lazy" class="freelancer" src="media/images/freelancer.png" alt="">
+                        <div class="card-left-slide" *ngFor="let card of cards; let i = index"[ngClass]="{'active': i === currentCard}">
+                            <p class="dash-section-1-card-left-titre">{{card.title}}</p>
+                            <h3 class="dash-section-1-card-left-text">{{card.text}}</h3>
+                            <a class="btn-link dash-section-card-left-1-btn-link" [href]="card.link">Consulter</a>
+                        </div>
+                    </div>
+                    <div class="point-slide">
+                        <div 
+                            *ngFor="let card of cards; let i = index" [ngClass]="{'current': i === currentCard}">
+                        </div>
                     </div>
                 </div>
+
+        
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
                     <h3>275 000 Fcfa</h3>
                     <a class="btn-link w-full flex justify-center" href="">Retirer</a>
                 </div>
+
             </section>
 
             <section class="dash-section-2">
