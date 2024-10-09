@@ -259,6 +259,7 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .dash-section-2 .card.card3{display: none !important;}
     .dash-section-responsive{display: flex !important;}
     .login-main .left{display: none !important;}
+    .wallet{height: 100px !important;}
 }
 @media only screen and (max-width:600px) {
     .dash-section-2 .card{padding: 0.5rem !important;}

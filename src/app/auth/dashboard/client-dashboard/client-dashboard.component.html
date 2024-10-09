@@ -10,9 +10,18 @@
                     <button class="flex items-center text-gray-700 mr-4">
                         <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
                     </button>
-                    <button class="flex items-center text-gray-700">
-                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Profile picture">
+                    <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
+                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
                     </button>
+
+
+                    <div *ngIf="menuOpen" class="dash-profile-menu bg-white rounded-md shadow-lg py-1">
+                        <div class="w-full flex justify-end"><button (click)="menuOpen = !menuOpen" class="close-menu"><span></span></button></div>
+                        <h4 class="text-center py-1">Menu</h4>
+                        <hr>
+                        <a routerLink="/settings" class="flex items-center px-4 py-2 text-base text-gray-700 hover:bg-gray-100"><img src="media/images/parametres.png" class="w-5 h-5 mr-2" alt=""> Paramètres</a>
+                        <a routerLink="/login" class="flex items-center px-4 py-2 text-base text-gray-700 hover:bg-gray-100"><img src="media/images/logout.png" class="w-5 h-5 mr-2" alt=""> Déconnexion</a>
+                    </div>
                 </div>
             </header>
             
@@ -20,8 +29,7 @@
                 <app-dash-slider-card [slides]="slides"  [autoSlide]="true"></app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
-                    <h3>275 000 Fcfa</h3>
-                    <a class="btn-link w-full flex justify-center" href="">Retirer</a>
+                    <a class="btn-link w-full flex justify-center" href="">Portefeuille</a>
                 </div>
 
             </section>
@@ -31,29 +39,10 @@
                     <img class="card-image" loading="lazy" src="media/images/project.png" alt="">
                     <div class="">
                         <h5 >Projet en cours</h5>
-                        <h4>0 <span>Projet</span></h4>
+                        <h4>1 <span>Projet</span></h4>
                     </div>
                 </div>
-                <div class="card card2">
-                    <img class="card-image" loading="lazy" src="media/images/star.png" alt="">
-                    <div class="">
-                        <h5>Notation</h5>
-                        <div class="stars-container">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-empty.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="card card3">
-                    <img class="card-image" src="media/images/money.png" alt="">
-                    <div>
-                        <h5>Total montant gagné</h5>
-                        <h4>647 000 <span>Fcfa</span></h4>
-                    </div>
-                </div>
+
             </section>
             <section class="dash-section-responsive">
                 <div class="card card3">
@@ -70,30 +59,30 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Client</th>
+                            <th>Freelancer</th>
                             <th>Tâche</th>
                             <th>Date</th>
-                            <th>Prix</th>
+                            <th>Statut</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Dupont SA</td>
+                            <td>Delon</td>
                             <td>Conception site web</td>
                             <td>15/05/2023</td>
-                            <td>982 500 FCFA</td>
+                            <td>En cours</td>
                         </tr>
                         <tr>
-                            <td>Martin EURL</td>
+                            <td>Delmas</td>
                             <td>Maintenance serveur</td>
                             <td>18/05/2023</td>
-                            <td>524 000 FCFA</td>
+                            <td>Terminé</td>
                         </tr>
                         <tr>
-                            <td>Lefevre & Fils</td>
+                            <td>Delmas</td>
                             <td>Développement application</td>
                             <td>20/05/2023</td>
-                            <td>1 637 500 FCFA</td>
+                            <td>Terminé</td>
                         </tr>
                     </tbody>
                 </table>
