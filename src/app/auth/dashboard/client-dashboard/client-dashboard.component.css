@@ -13,12 +13,12 @@ header{
 .dash-profile-menu{
     padding: 0.5rem;
     position: absolute;
-    top: 10px;
+    top: 70px;
     right: 10px;
     background-color: #fff;
     border: 1px solid #00000011;
     border-radius: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-width: 200px;
 }
 .close-menu span{
@@ -154,7 +154,7 @@ app-dash-slider-card{
     background: linear-gradient(135deg, rgba(245,255,245,1) 0%, rgba(234,255,234,1) 100%);
 }
 table {
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
     background-color: white;

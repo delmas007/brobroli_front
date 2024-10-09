@@ -1,0 +1,103 @@
+<main class="settings-page">
+    <aside>
+        <div class="aside-container">
+            <h3>Paramètres</h3>
+            <hr>
+            <div class="settings-aside">
+                <a [routerLink]="[]" fragment="profile"><mat-icon>person</mat-icon>Mon profil</a>
+                <a [routerLink]="[]" fragment="portefeuille"><mat-icon>account_balance_wallet</mat-icon>Mon Portefeuille</a>
+                <a [routerLink]="[]" fragment="notifications"><mat-icon>notifications</mat-icon>Notifications</a>
+                <a [routerLink]="[]" fragment="securite"><mat-icon>security</mat-icon>Sécurité</a>
+            </div>
+        </div>
+    </aside>
+    <div class="sections">
+        <section id="profile">
+            <h2>Mon profil</h2>
+            <p>Gérez vos informations personnelles et vos préférences de profil.</p>
+            <div class=" font-sans">
+                <div class="container mx-auto  p-4 max-w-5xl">
+                    <header class="bg-white box-shadow1 rounded-xl p-6 mb-6">
+                        <div class="flex justify-start items-center">
+                            <img class="w-32 h-auto mr-2" src="media/images/profile.png" alt="">
+                            <div>
+                                <h1 class="text-3xl font-bold text-gray-800 mb-2">Koffi Masta </h1>
+                                <h2 class="text-xl text-gray-600 mb-4">Développeur Fullstack </h2>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 text-sm mt-1 text-gray-600">
+                            <p>📧 koffi.devemail.com </p>
+                            <p>📱 06 12 34 56 78 </p>
+                            <p>🌐 www.koffimasta.dev </p>
+                            <p>📍 Abidjan, Côte d'Ivoire </p>
+                        </div>
+                    </header>
+            
+                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Résumé <mat-icon>edit</mat-icon></h3>
+                            <p class="text-gray-600">Développeur fullstack passionné avec 5 ans d'expérience dans la création d'applications web robustes et évolutives. Expertise en JavaScript, React, Node.js et bases de données SQL/NoSQL.</p>
+                        </div>
+            
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Expérience Professionnelle <mat-icon>edit</mat-icon></h3>
+                            <div class="mb-4">
+                                <h4 class="text-lg font-medium text-gray-800">Développeur Fullstack Senior - TechCorp </h4>
+                                <p class="text-sm text-gray-600">Janvier 2020 - Présent </p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>Développement et maintenance d'applications web à grande échelle </li>
+                                    <li>Mise en place d'architectures microservices avec Docker et Kubernetes </li>
+                                    <li>Mentorat des développeurs juniors et revue de code </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800">Développeur Frontend - WebSolutions </h4>
+                                <p class="text-sm text-gray-600">Juin 2018 - Décembre 2019 </p>
+                                <ul class="list-disc list-inside text-gray-600 mt-2">
+                                    <li>Création d'interfaces utilisateur réactives avec React et Redux </li>
+                                    <li>Optimisation des performances front-end et amélioration de l'expérience utilisateur </li>
+                                </ul>
+                            </div>
+                        </div>
+            
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">Compétences <mat-icon>add</mat-icon></h3>
+                            <ul class="flex flex-wrap gap-2">
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">JavaScript</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">TypeScript</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">React</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">Node.js</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">Express</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">MongoDB</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">PostgreSQL</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">Docker</li>
+                                <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">Git</li>
+                            </ul>
+                        </div>
+            
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Formation <mat-icon>edit</mat-icon></h3>
+                            <div>
+                                <h4 class="text-lg font-medium text-gray-800">Master en Informatique </h4>
+                                <p class="text-sm text-gray-600">Université de Paris - 2018 </p>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </section>
+        <section id="portefeuille">
+            <h3>Mon portefeuille</h3>
+            <p>Consultez et gérez vos transactions financières.</p>
+        </section>
+        <section id="notifications">
+            <h3>Notifications</h3>
+            <p>Configurez vos préférences de notification.</p>
+        </section>
+        <section id="securite">
+            <h3>Sécurité</h3>
+            <p>Gérez vos paramètres de sécurité et de confidentialité.</p>
+        </section>
+    </div>
+</main>

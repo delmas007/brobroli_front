@@ -1,0 +1,43 @@
+.box-shadow1{box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
+.settings-page{
+    display: flex;
+    height: 100vh;
+}
+aside{
+    width: 20%;
+    min-height: 100vh;
+    padding: 0.5rem;
+}
+.aside-container{
+    position: fixed;
+}
+.settings-aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+
+}
+.settings-aside a{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    margin: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+.settings-aside a:hover{
+    background-color: #14C0B7;
+    border-radius: 17px;
+    color: #fff;
+    padding: 0 0.5rem;
+}
+.sections{
+    width: 100%;
+}
+section{
+    width: 100%;
+    padding: 0.5rem;
+    min-height: 100vh;
+    border-bottom: 1px solid #14C0B7;
+}

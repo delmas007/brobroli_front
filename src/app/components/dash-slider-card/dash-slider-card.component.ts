@@ -8,6 +8,7 @@ interface Slide {
   title: string;
   text: string;
   url: string;
+  btnText: string;
 }
 
 @Component({

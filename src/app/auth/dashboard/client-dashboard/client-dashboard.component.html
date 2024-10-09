@@ -6,6 +6,7 @@
                 <a routerLink="/" class="flex items-center">
                     <img class="logo" src="media/images/Logo.png" alt="">
                 </a>
+                
                 <div class="flex items-center">
                     <button class="flex items-center text-gray-700 mr-4">
                         <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
@@ -19,8 +20,8 @@
                         <div class="w-full flex justify-end"><button (click)="menuOpen = !menuOpen" class="close-menu"><span></span></button></div>
                         <h4 class="text-center py-1">Menu</h4>
                         <hr>
-                        <a routerLink="/settings" class="flex items-center px-4 py-2 text-base text-gray-700 hover:bg-gray-100"><img src="media/images/parametres.png" class="w-5 h-5 mr-2" alt=""> Paramètres</a>
-                        <a routerLink="/login" class="flex items-center px-4 py-2 text-base text-gray-700 hover:bg-gray-100"><img src="media/images/logout.png" class="w-5 h-5 mr-2" alt=""> Déconnexion</a>
+                        <a routerLink="/settings" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">settings</mat-icon> Paramètres</a>
+                        <a routerLink="/login" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">logout</mat-icon> Déconnexion</a>
                     </div>
                 </div>
             </header>
@@ -36,6 +37,13 @@
 
             <section class="dash-section-2">
                 <div class="card card1">
+                    <img class="card-image" loading="lazy" src="media/images/project.png" alt="">
+                    <div class="">
+                        <h5 >Projet en cours</h5>
+                        <h4>1 <span>Projet</span></h4>
+                    </div>
+                </div>
+                <div class="card card2">
                     <img class="card-image" loading="lazy" src="media/images/project.png" alt="">
                     <div class="">
                         <h5 >Projet en cours</h5>
