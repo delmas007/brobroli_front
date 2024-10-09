@@ -17,24 +17,7 @@
             </header>
             
             <section class="dash-section-1">
-                
-                <div class="card left">
-                    <div class="flex items-center justify-between">
-                        <img loading="lazy" class="freelancer" src="media/images/freelancer.png" alt="">
-                        <div class="card-left-slide" *ngFor="let card of cards; let i = index"[ngClass]="{'active': i === currentCard}">
-                            <p class="dash-section-1-card-left-titre">{{card.title}}</p>
-                            <h3 class="dash-section-1-card-left-text">{{card.text}}</h3>
-                            <a class="btn-link dash-section-card-left-1-btn-link" [href]="card.link">Consulter</a>
-                        </div>
-                    </div>
-                    <div class="point-slide">
-                        <div 
-                            *ngFor="let card of cards; let i = index" [ngClass]="{'current': i === currentCard}">
-                        </div>
-                    </div>
-                </div>
-
-        
+                <app-dash-slider-card [slides]="slides"  [autoSlide]="true"></app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
                     <h3>275 000 Fcfa</h3>
@@ -83,7 +66,7 @@
             </section>
         
             <section class="dash-section-3">
-                <h2>Projet Récent</h2>
+                <h2>Projets Récents</h2>
                 <table>
                     <thead>
                         <tr>
@@ -97,20 +80,20 @@
                         <tr>
                             <td>Dupont SA</td>
                             <td>Conception site web</td>
-                            <td>2023-05-15</td>
-                            <td>1500 €</td>
+                            <td>15/05/2023</td>
+                            <td>982 500 FCFA</td>
                         </tr>
                         <tr>
                             <td>Martin EURL</td>
                             <td>Maintenance serveur</td>
-                            <td>2023-05-18</td>
-                            <td>800 €</td>
+                            <td>18/05/2023</td>
+                            <td>524 000 FCFA</td>
                         </tr>
                         <tr>
                             <td>Lefevre & Fils</td>
                             <td>Développement application</td>
-                            <td>2023-05-20</td>
-                            <td>2500 €</td>
+                            <td>20/05/2023</td>
+                            <td>1 637 500 FCFA</td>
                         </tr>
                     </tbody>
                 </table>

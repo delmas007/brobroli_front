@@ -1,32 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { DashSliderCardComponent } from '../../../components/dash-slider-card/dash-slider-card.component';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-client-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent],
   templateUrl: './client-dashboard.component.html',
   styleUrls: ['./client-dashboard.component.css']
 })
-export class ClientDashboardComponent implements OnInit {
 
-  cards = [
-    {
-      title: 'Bonjour, Alias',
-      text: 'Consultez toutes les collaborations en attente sur votre profil pour débuter un service.',
-      link: 'http://'
-    },
-    { title: 'Carte 2', text: 'Ceci est la carte 2', link: 'https://www.example.com' },
-    { title: 'Carte 3', text: 'Ceci est la carte 3', link: 'https://www.example.com' },
+export class ClientDashboardComponent{
+  title = 'client-dashboard';
+  
+  slides = [
+    {imageSrc:'media/images/freelancer.png', imageAlt:'Freelancer', title:'Bonjour, Alias', text: 'Consultez toutes les collaborations en attente sur votre profil pour débuter un service.', url:'' },
+    {imageSrc:'media/images/freelancer-f.png', imageAlt:'Freelancer', title:'Bonjour, Alias', text: 'Collaboration 2 en attente.', url:'/' },
+    {imageSrc:'media/images/freelancer.png', imageAlt:'Freelancer', title:'Bonjour, Alias', text: 'Collaboration 3 en attente.', url:'/' }
   ];
-
-  currentCard = 0;
-  constructor() { }
-  ngOnInit(): void {
-    this.startCardRotation();
-  }
-  startCardRotation(): void {
-    setInterval(() => {this.currentCard = (this.currentCard + 1) % this.cards.length;}, 3000);
-  }
 }

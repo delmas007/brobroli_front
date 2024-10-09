@@ -8,6 +8,7 @@ import { PrestataireDashboardComponent } from './auth/dashboard/prestataire-dash
 import {RegisterComponent} from './auth/register/register.component';
 
 
+
 export const routes: Routes = [
 
     { path: '', component: HomeComponent },

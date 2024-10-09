@@ -1,0 +1,49 @@
+
+.card.left{
+
+}
+.card-left-slide{display: none;}
+
+.card-left-slide.active{
+    display: flex;
+    justify-content: space-between;
+    animation: 0.5s cubic-bezier(.25, 1, .30, 1) wipe-in-left both;
+}
+@keyframes wipe-in-left {
+    from {
+        clip-path: inset(0 0 0 100%);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.point-slide{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top:1rem;
+}
+.point-slide span{
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0.2rem 1rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+.point-slide span.current{
+    background-color: #14C0B7;
+}
+.freelancer{
+    width: auto;
+    height: 200px;
+    margin: 0 2rem;
+}
+.dash-section-1-card-left-titre{
+    font-weight: bold;
+    font-size: 20px;
+}
+.dash-section-1-card-left-text{
+    font-size: 25px;
+}
