@@ -1,13 +1,18 @@
 <main class="settings-page">
     <aside>
         <div class="aside-container">
-            <h3>Paramètres</h3>
+            <h3 class="text-[#14C0B7]">Paramètres</h3>
             <hr>
             <div class="settings-aside">
-                <a [routerLink]="[]" fragment="profile"><mat-icon>person</mat-icon>Mon profil</a>
-                <a [routerLink]="[]" fragment="portefeuille"><mat-icon>account_balance_wallet</mat-icon>Mon Portefeuille</a>
-                <a [routerLink]="[]" fragment="notifications"><mat-icon>notifications</mat-icon>Notifications</a>
-                <a [routerLink]="[]" fragment="securite"><mat-icon>security</mat-icon>Sécurité</a>
+                <div class="">
+                    <a [routerLink]="[]" fragment="profile"><mat-icon>person</mat-icon>Mon profil</a>
+                    <a [routerLink]="[]" fragment="portefeuille"><mat-icon>account_balance_wallet</mat-icon>Mon Portefeuille</a>
+                    <a [routerLink]="[]" fragment="notifications"><mat-icon>notifications</mat-icon>Notifications</a>
+                    <a [routerLink]="[]" fragment="securite"><mat-icon>security</mat-icon>Sécurité</a>
+                </div>
+                <div class="">
+                    <a routerLink="/dashboard-prestataire"><mat-icon>dashboard</mat-icon>Dashboard</a>
+                </div>
             </div>
         </div>
     </aside>

@@ -245,6 +245,7 @@ h6,h7{line-height:1.6}*{font-family:system-ui,-apple-system,BlinkMacSystemFont,'
     .navbar .btn-connexion{display: none!important;}
     .hamburger {display: flex!important;}
     .navbar h3{font-size: 1.5rem;}
+    .settings-page aside{display: none !important;}
 }
 
 @media only screen and (max-width: 768px){

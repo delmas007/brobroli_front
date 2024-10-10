@@ -7,29 +7,32 @@ aside{
     width: 20%;
     min-height: 100vh;
     padding: 0.5rem;
+
 }
 .aside-container{
     position: fixed;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
 }
 .settings-aside{
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: fixed;
-
 }
 .settings-aside a{
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-weight: 600;
-    margin: 1rem;
+    margin: 3rem 1rem;
     transition: all 0.3s ease-in-out;
 }
+.settings-aside a mat-icon{color: #14C0B7;}
 .settings-aside a:hover{
     background-color: #14C0B7;
     border-radius: 17px;
-    color: #fff;
+    color: #fff !important;
     padding: 0 0.5rem;
 }
 .sections{
