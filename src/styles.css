@@ -76,6 +76,7 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     transition: all 0.3s ease-in;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 
 }
 .section-1 .title-container{
@@ -270,6 +271,8 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     .dash-section-responsive{display: flex !important;}
     .login-main .left{display: none !important;}
     .wallet{height: 100px !important;}
+    .aside-filter{display: none !important;}
+    .search-section1 img{display: block!important;}
 }
 @media only screen and (max-width:600px) {
     .dash-section-2 .card{padding: 0.5rem !important;}
