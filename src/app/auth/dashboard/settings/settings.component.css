@@ -1,5 +1,4 @@
 .box-shadow1{box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;}
-h3,h2{margin: 0;}
 .settings-page{
     display: flex;
     height: 100vh;
@@ -8,13 +7,12 @@ aside{
     width: 20%;
     min-width: 20%;
     min-height: 100vh;
-
 }
 .aside-container{
     position: fixed;
-
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 0.5rem;
+    width: 20%;
 
 }
 .settings-aside{
@@ -47,4 +45,48 @@ aside{
 section{
     width: 100%;
     border-bottom: 1px solid #14C0B7;
+}
+.sections h2{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom:0;
+    color: #14C0B7;
+}
+.username{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+}
+h5.title-username{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+.btn-edit{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #14C0B7;
+    color: #fff;
+    padding: 4px 1rem;
+    border-radius: 17px;
+}
+.btn-edit-responsive{
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    display: none;
+    background-color: #14C0B7;
+    color: #fff;
+    padding: 0.2rem;
+    border-radius: 17px;
+}
+
+@media only screen and (max-width: 530px) {
+    .username{font-size: 1.2rem;}
+    h5.title-username{font-size: 1rem;}
+    .btn-edit{display: none;}
+    .btn-edit-responsive{display: flex;}
 }

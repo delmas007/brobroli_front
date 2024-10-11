@@ -5,8 +5,37 @@
         <img src="media/images/menu-dash.png" alt="">
     </section>
     <section class="flex">
-        <aside class="aside-filter">
-            <p>Filtrer</p>
+        <aside class="aside-filter w-64 min-h-screen p-4">
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-2xl font-bold">Filtres</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-medium">Catégorie</label>
+                    <select class="input-style">
+                        <option>Design</option>
+                        <option>Développement</option>
+                        <option>Marketing</option>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-medium">Type de travail</label>
+                    <select class="input-style">
+                        <option>Temps plein</option>
+                        <option>Temps partiel</option>
+                        <option>Freelance</option>
+                    </select>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-medium">Localisation</label>
+                    <input type="text" class="input-style" placeholder="Entrez une ville">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-medium">Salaire</label>
+                    <input type="range" class="range-slider" name="range-slider" id="range-slider">
+                </div>
+                <button class="btn-link">Appliquer</button>
+            </div>
         </aside>
         <div class="card-container">
             <div class="card-profile">

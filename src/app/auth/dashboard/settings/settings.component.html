@@ -19,18 +19,23 @@
     <div class="sections">
         <section id="profile">
             <h2 class="m-0">Mon profil</h2>
-            <p>Gérez vos informations personnelles et vos préférences de profil.</p>
+            <hr>
+            <p class="text-gray-600 font-medium">Gérez vos informations personnelles et vos préférences de profil.</p>
             <div class=" font-sans">
-                <div class="container mx-auto  p-4 max-w-5xl">
-                    <header class="bg-white box-shadow1 rounded-xl p-6 mb-6">
-                        <div class="flex justify-start items-center">
-                            <img class="w-24 h-auto mr-2" src="media/images/profile.png" alt="">
-                            <div>
-                                <h3 class="text-3xl font-bold text-gray-800">Koffi Masta </h3>
-                                <h5 class="text-xl text-gray-600 mb-4">Développeur Fullstack </h5>
-                            </div>
-                        </div>
+                <div class="container mx-auto  max-w-5xl">
 
+                    <header class="bg-white box-shadow1 rounded-xl p-6 mb-6">
+                        <div class="relative flex justify-between items-center flex-wrap">
+                            <div class="flex justify-start items-center mb-2">
+                                <img class="w-24 h-auto mr-5" src="media/images/profile.png" alt="">
+                                <div>
+                                    <h3 class="username">Koffi Masta </h3>
+                                    <h5 class="title-username ">Développeur Fullstack </h5>
+                                </div>
+                            </div>
+                            <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                            <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
+                        </div>
                         <div class="flex flex-wrap gap-4 text-sm mt-1 text-gray-600">
                             <p>📧 koffi.devemail.com </p>
                             <p>📱 06 12 34 56 78 </p>
@@ -38,17 +43,27 @@
                             <p>📍 Abidjan, Côte d'Ivoire </p>
                         </div>
                     </header>
-            
+
                     <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Résumé <mat-icon>edit</mat-icon></h3>
-                            <p class="text-gray-600">Développeur fullstack passionné avec 5 ans d'expérience dans la création d'applications web robustes et évolutives. Expertise en JavaScript, React, Node.js et bases de données SQL/NoSQL.</p>
+                            <div class="flex justify-between items-center relative">
+                                <span class="text-4xl font-bold text-gray-800">Résumé</span>
+                                <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                                <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
+                            </div>
+                            <p class="text-gray-600 mt-3">Développeur fullstack passionné avec 5 ans d'expérience dans la création d'applications web robustes et évolutives. Expertise en JavaScript, React, Node.js et bases de données SQL/NoSQL.</p>
                         </div>
-            
+                    </main>
+
+                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Expérience Professionnelle <mat-icon>edit</mat-icon></h3>
-                            <div class="mb-4">
-                                <h4 class="text-lg font-medium text-gray-800">Développeur Fullstack Senior - TechCorp </h4>
+                            <div class="flex justify-between items-center relative">
+                                <span class="text-4xl  font-bold  text-gray-800">Expérience Professionnelle</span>
+                                <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                                <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
+                            </div>
+                            <div class="mb-4 mt-3">
+                                <span class="text-xl font-medium text-gray-800">Développeur Fullstack Senior - TechCorp </span>
                                 <p class="text-sm text-gray-600">Janvier 2020 - Présent </p>
                                 <ul class="list-disc list-inside text-gray-600 mt-2">
                                     <li>Développement et maintenance d'applications web à grande échelle </li>
@@ -57,7 +72,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="text-lg font-medium text-gray-800">Développeur Frontend - WebSolutions </h4>
+                                <span class="text-xl font-medium text-gray-800">Développeur Frontend - WebSolutions </span>
                                 <p class="text-sm text-gray-600">Juin 2018 - Décembre 2019 </p>
                                 <ul class="list-disc list-inside text-gray-600 mt-2">
                                     <li>Création d'interfaces utilisateur réactives avec React et Redux </li>
@@ -65,9 +80,15 @@
                                 </ul>
                             </div>
                         </div>
-            
+                    </main>
+
+                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
-                            <h3 class="text-xl font-semibold text-gray-800 mb-3 flex items-center gap-2">Compétences <mat-icon>add</mat-icon></h3>
+                            <div class="flex justify-between items-center relative">
+                                <span class="text-4xl font-bold text-gray-800 mb-3 flex items-center gap-2">Compétences</span>
+                                <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                                <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
+                            </div>
                             <ul class="flex flex-wrap gap-2">
                                 <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">JavaScript</li>
                                 <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">TypeScript</li>
@@ -80,29 +101,94 @@
                                 <li class="bg-gray-200 px-3 py-1 rounded-full text-sm text-gray-700">Git</li>
                             </ul>
                         </div>
-            
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Formation <mat-icon>edit</mat-icon></h3>
+                    </main>
+
+                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                        <div class="mb-6">
+                            <div class="flex justify-between items-center relative">
+                                <span class="text-4xl font-bold text-gray-800 mb-3">Formation</span>
+                                <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                                <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
+                            </div>
                             <div>
-                                <h4 class="text-lg font-medium text-gray-800">Master en Informatique </h4>
+                                <span class="text-lg font-medium text-gray-800">Master en Informatique </span>
                                 <p class="text-sm text-gray-600">Université de Paris - 2018 </p>
                             </div>
                         </div>
                     </main>
+
                 </div>
             </div>
         </section>
-        <section id="portefeuille">
-            <h3>Mon portefeuille</h3>
-            <p>Consultez et gérez vos transactions financières.</p>
+        <section class="min-h-screen" id="portefeuille">
+            <h2>Mon portefeuille</h2>
+            <p class="text-gray-600 font-medium">Consultez et gérez vos transactions financières.</p>
+            <main class="h-2/3 bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                <div class="mb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center relative">
+                        <div class="visa-card bg-gradient-to-r from-black via-gray-800 to-black text-white rounded-xl p-4 mb-4 md:mb-0 md:mr-4 w-full">
+                            <div class="flex justify-between items-center mb-4">
+                                <img src="media/images/visa.png" alt="Visa Logo" class="w-16 h-auto">
+                            </div>
+                            <div class="mb-4">
+                                <span class="text-sm">Numéro de carte</span>
+                                <p class="text-xl font-semibold">**** **** **** 1234</p>
+                            </div>
+                            <div class="flex justify-between">
+                                <div>
+                                    <span class="text-sm">Titulaire</span>
+                                    <p class="text-lg font-medium">Koffi Masta</p>
+                                </div>
+                                <div>
+                                    <span class="text-sm">Expiration</span>
+                                    <p class="text-lg font-medium">12/24</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col  gap-2 w-full">
+                            <button class="btn-edit flex items-center justify-center">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                            <button class="btn-edit flex items-center justify-center">Supprimer <mat-icon class="text-lg">delete</mat-icon></button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
         </section>
-        <section id="notifications">
-            <h3>Notifications</h3>
-            <p>Configurez vos préférences de notification.</p>
+        <section class="min-h-screen" id="notifications">
+            <h2>Notifications</h2>
+            <p class="text-gray-600 font-medium">Configurez vos préférences de notification.</p>
+            <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                <div class="mb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center relative">
+                        <div class="w-full">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4">Préférences de notification</h3>
+                            <div class="flex flex-col gap-4">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Notifications par email</span>
+                                    <mat-slide-toggle color="primary"></mat-slide-toggle>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Notifications par SMS</span>
+                                    <mat-slide-toggle color="primary"></mat-slide-toggle>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Notifications push</span>
+                                    <mat-slide-toggle color="primary"></mat-slide-toggle>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm text-gray-600">Notifications de rappel</span>
+                                    <mat-slide-toggle color="primary"></mat-slide-toggle>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </section>
         <section id="securite">
-            <h3>Sécurité</h3>
-            <p>Gérez vos paramètres de sécurité et de confidentialité.</p>
+            <h2>Sécurité</h2>
+            <p class="text-gray-600 font-medium">Gérez vos paramètres de sécurité et de confidentialité.</p>
+            <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6"></main>
         </section>
     </div>
 </main>
