@@ -34,6 +34,18 @@ header{
     padding:1rem 2rem;
     gap: 1rem;
 }
+.dash-section-1 .btn-link{
+    font-size: 15px;
+    padding: 0.2rem 1.5rem;
+}
+.dash-section-1 p.text-2xl{
+    background: #14C0B7;
+    background: linear-gradient(to right, #14C0B7 0%, #000000 99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+
+}
 .dash-section-1 .card{
     border-radius: 15px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -54,7 +66,7 @@ header{
 }
 .wallet{
     width: auto;
-    height: 160px;
+    height: 140px;
 }
 .dash-section-2{
     display: flex;
@@ -101,7 +113,6 @@ app-dash-slider-card{
 .dash-section-2 .card .card-image,.dash-section-responsive .card .card-image{
     height: 70px;
     width: auto;
-
 }
 .card  h4{
     font-size: 17px;

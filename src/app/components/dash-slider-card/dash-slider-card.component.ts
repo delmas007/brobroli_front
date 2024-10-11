@@ -24,9 +24,7 @@ export class DashSliderCardComponent implements OnInit, OnDestroy {
   @Input() slides: Slide[] = [];
   @Input() indicators = true;
   @Input() autoSlide = false;
-  // slideInterval = 3000;
 
-  // autoSlideInterval: any;
 
   selectedSlide = 0;
 
@@ -36,17 +34,9 @@ export class DashSliderCardComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-    // if (this.autoSlideInterval) {
-    //   clearInterval(this.autoSlideInterval);
-    // }
-  }
+  ngOnDestroy(): void {}
 
-  startAutoSlide(): void {
-    // this.autoSlideInterval = setInterval(() => {
-    //   this.selectSlide((this.selectedSlide + 1) % this.slides.length);
-    // }, this.slideInterval);
-  }
+  startAutoSlide(): void {}
 
   selectSlide(index: number): void {
     this.selectedSlide = index;

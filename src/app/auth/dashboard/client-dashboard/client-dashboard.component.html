@@ -21,7 +21,9 @@
                         <h4 class="text-center py-1">Menu</h4>
                         <hr>
                         <a routerLink="/settings" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">settings</mat-icon> Paramètres</a>
+                        <hr>
                         <a routerLink="/login" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">logout</mat-icon> Déconnexion</a>
+                        <hr>
                     </div>
                 </div>
             </header>
@@ -30,7 +32,12 @@
                 <app-dash-slider-card [slides]="slides"  [autoSlide]="true"></app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
-                    <a class="btn-link w-full flex justify-center" href="">Portefeuille</a>
+                    <p class="text-2xl text-center font-bold">647 000 <span>Fcfa</span></p>
+                    <div class="flex gap-2">
+                        <a class="btn-link w-full flex justify-center" href="">Recharger</a>
+                        <a class="btn-link w-full flex justify-center" href="">Retirer</a>
+                    </div>
+
                 </div>
 
             </section>

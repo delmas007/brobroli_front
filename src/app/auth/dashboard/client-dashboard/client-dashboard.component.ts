@@ -18,8 +18,8 @@ export class ClientDashboardComponent {
   menuOpen = false;
 
   slides = [
-    {imageSrc:'media/images/freelancer.png', imageAlt:'Freelancer', title:'Bonjour, Alias', text: 'Recherchez des freelancers pour une nouvelle collaboration.', url:'', btnText:'Rechercher' },
-    {imageSrc:'media/images/freelancer-f.png', imageAlt:'Freelancer', title:'Bonjour, Alias', text: 'Collaboration 2 en attente.', url:'/', btnText:'Voir les projets' },
-    {imageSrc:'media/images/fiche.png', imageAlt:'Freelancer', title:'Inscription incomplète', text: 'Veuillez terminer votre inscription pour débuter une collaboration.', url:'/', btnText:'Finaliser' }
+    {imageSrc: 'media/images/fiche.png', imageAlt: 'Freelancer', title: 'Inscription incomplète', text: 'Veuillez terminer votre inscription pour débuter une collaboration.', url: '/final-registration', btnText: 'Finaliser'},
+    {imageSrc: 'media/images/freelancer.png', imageAlt: 'Freelancer', title: 'Bonjour, Alias', text: 'Recherchez des freelancers pour une nouvelle collaboration.', url: '/search', btnText: 'Rechercher'},
+    {imageSrc: 'media/images/freelancer-f.png', imageAlt: 'Freelancer', title: 'Mes projets', text: 'Obtenez une vue d\'ensemble complète de vos projets en cours et achevés.', url: '/projects', btnText: 'Voir les projets'}
   ];
 }

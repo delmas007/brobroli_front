@@ -8,6 +8,7 @@ import { PrestataireDashboardComponent } from './auth/dashboard/prestataire-dash
 import {RegisterComponent} from './auth/register/register.component';
 import { SettingsComponent } from './auth/dashboard/settings/settings.component';
 import { SearchComponent } from './search/search.component';
+import { FinalRegistrationComponent } from './auth/final-registration/final-registration.component';
 
 export const routes: Routes = [
 
@@ -19,7 +20,6 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'settings', component: SettingsComponent },
     { path: 'search', component: SearchComponent },
-
-
+    { path: 'final-registration', component: FinalRegistrationComponent },
     { path: '**', component: PageNotFoundComponent },
 ];
