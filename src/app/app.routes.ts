@@ -10,6 +10,7 @@ import { SettingsComponent } from './auth/dashboard/settings/settings.component'
 import { SearchComponent } from './search/search.component';
 import { FinalRegistrationComponent } from './auth/final-registration/final-registration.component';
 import { CollabProfileComponent } from './collab-profile/collab-profile.component';
+import { ProjectsComponent } from './projects/projects.component';
 
 export const routes: Routes = [
 
@@ -23,7 +24,7 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'final-registration', component: FinalRegistrationComponent },
     { path: 'profile', component: CollabProfileComponent },
-
+    { path: 'projects', component: ProjectsComponent },
     { path: '**', component: PageNotFoundComponent },
 
 
