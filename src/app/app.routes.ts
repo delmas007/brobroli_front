@@ -9,6 +9,7 @@ import {RegisterComponent} from './auth/register/register.component';
 import { SettingsComponent } from './auth/dashboard/settings/settings.component';
 import { SearchComponent } from './search/search.component';
 import { FinalRegistrationComponent } from './auth/final-registration/final-registration.component';
+import { CollabProfileComponent } from './collab-profile/collab-profile.component';
 
 export const routes: Routes = [
 
@@ -21,5 +22,10 @@ export const routes: Routes = [
     { path: 'settings', component: SettingsComponent },
     { path: 'search', component: SearchComponent },
     { path: 'final-registration', component: FinalRegistrationComponent },
+    { path: 'profile', component: CollabProfileComponent },
+
     { path: '**', component: PageNotFoundComponent },
+
+
+
 ];
