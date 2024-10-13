@@ -26,7 +26,10 @@
             </header>
             
             <section class="dash-section-1">
-                <app-dash-slider-card [slides]="slides"  [autoSlide]="true"></app-dash-slider-card>
+                <app-dash-slider-card 
+                [slides]="slidesToShow" 
+                [autoSlide]="true">
+            </app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
                     <p class="text-2xl text-center font-bold">647 000 <span>Fcfa</span></p>

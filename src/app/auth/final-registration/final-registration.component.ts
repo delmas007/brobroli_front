@@ -1,34 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { Person } from '../../interface/person';
+import { User } from '../../interface/user';
 
 @Component({
   selector: 'app-final-registration',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './final-registration.component.html',
   styleUrl: './final-registration.component.css'
 })
 export class FinalRegistrationComponent implements OnInit {
   currentStep: number = 1;
   totalSteps: number = 2;
-  questions: string[][] = [
-    [
-      'Ville de résidence ?',
-      'Quartier de résidence ?',
-      'Code postal ?',
-      'Parlez-nous de vous'
-    ],
-    [
-      'Quelle est votre profession ?',
-      'Comment avez-vous entendu parler de nous ?',
-      'Quelles sont vos attentes principales ?',
-      'Acceptez-vous nos conditions d\'utilisation ?'
-    ]
-  ];
-  answers: string[][] = Array(4).fill([]).map(() => Array(2).fill(''));
+  userRole: 'provider' | 'customer' = 'provider';
 
-  ngOnInit() {}
+  questions: {
+    provider: Array<{ question: string, type: string, options?: string[] }>,
+    customer: Array<{ question: string, type: string, options?: string[] }>
+  } = {
+    provider: [
+      { question: 'Ville de résidence ?', type: 'text' },
+      { question: 'Quartier de résidence ?', type: 'text' },
+      { question: 'Code postal ?', type: 'text' },
+      { question: 'Parlez-nous de vous', type: 'textarea' },
+      { question: 'Quelle est votre profession ?', type: 'text' },
+      { question: 'Comment avez-vous entendu parler de nous ?', type: 'select', options: ['Internet', 'Ami', 'Publicité', 'Autre'] },
+      { question: 'Quels services proposez-vous ?', type: 'select', options: ['Développement mobile', 'Développement web', 'Design graphique', 'Formation', 'Marketing', 'Photographie'] },
+    ],
+    customer: [
+      { question: 'Ville de résidence ?', type: 'text' },
+      { question: 'Code postal ?', type: 'text' },
+      { question: 'Quelle est votre tranche d\'âge ?', type: 'select', options: ['18-25', '26-35', '36-50', '51+'] },
+      { question: 'Quels services recherchez-vous ?', type: 'checkbox', options: ['Service 1', 'Service 2', 'Service 3'] },
+      { question: 'Comment avez-vous entendu parler de nous ?', type: 'select', options: ['Internet', 'Ami', 'Publicité', 'Autre'] },
+    ]
+  };
+
+  answers: any = {};
+
+  ngOnInit() {
+    this.questions[this.userRole].forEach(q => {
+      if (q.type === 'checkbox' && q.options) {
+        this.answers[q.question] = q.options.map(() => false);
+      } else {
+        this.answers[q.question] = '';
+      }
+    });
+  }
 
   nextStep() {
     if (this.currentStep < this.totalSteps) {
@@ -44,6 +65,6 @@ export class FinalRegistrationComponent implements OnInit {
 
   onSubmit() {
     console.log('Réponses soumises :', this.answers);
-    window.location.href = '/dashboard-prestataire';
+    window.location.href = this.userRole === 'provider' ? '/dashboard-prestataire' : '/dashboard-client';
   }
 }

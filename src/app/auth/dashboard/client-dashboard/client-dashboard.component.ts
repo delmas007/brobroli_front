@@ -36,7 +36,7 @@ export class ClientDashboardComponent implements OnInit {
 
   getCurrentUser(): void {
     this.currentUser = new Person(
-      1, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
+      2, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
       'Abidjan', '0123456789', 'Bingerville', 'Biographie de Delmas',
       new Date(), new Date(), 
       [new Balance(2, 'slug', 247000)], 

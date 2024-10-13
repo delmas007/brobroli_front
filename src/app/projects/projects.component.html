@@ -25,17 +25,35 @@
         </div>
     </header>
     <section>
-        <span class="text-2xl font-bold">En attente de validation</span>
-        <div class="bg-white rounded-2xl shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-2">
-            <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
-            <span class="text-md font-semibold text-center md:text-left">Design d'une application web</span>
-            <span class="text-md font-semibold text-center md:text-left">il y a 2 jours</span>
-            <span class="label-done">Terminé</span>
-            <div class="flex gap-2">
-                <button class="btn-link false"><mat-icon>close</mat-icon></button>
-                <button class="btn-link true"><mat-icon>check</mat-icon></button>
+        <div *ngIf="isProvider">
+            <span  class="text-xl font-bold ">En attente de collaboration</span>
+            <div class="bg-white rounded-2xl shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-2">
+                <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+                <span class="text-md font-semibold text-center md:text-left">{{currentUser?.firstName}} {{currentUser?.lastName}}</span>
+                <span class="text-md font-semibold text-center md:text-left">Design d'une application web</span>
+                <span class="text-md font-semibold text-center md:text-left">il y a 2 heures</span>
+                <div class="flex gap-2">
+                    <button (click)="onRefuse()" class="btn-link false"><mat-icon>close</mat-icon></button>
+                    <button (click)="onAccept()" class="btn-link true"><mat-icon>check</mat-icon></button>
+                </div>
             </div>
         </div>
+
+        <div *ngIf="!isProvider">
+            <span class="text-xl font-bold ">En attente de validation</span>
+            <div class="bg-white rounded-2xl shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-2">
+                <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+                <span class="text-md font-semibold text-center md:text-left">Design d'une application web</span>
+                <span class="text-md font-semibold text-center md:text-left">il y a 2 jours</span>
+                <span class="label-done">Terminé</span>
+                <div class="flex gap-2">
+                    <button (click)="onDoneCollab()" class="btn-link false"><mat-icon>close</mat-icon></button>
+                    <button (click)="onUnDoneCollab()" class="btn-link true"><mat-icon>check</mat-icon></button>
+                </div>
+            </div>
+        </div>
+
+
     </section>
     <section class="dash-section-3">
         <span class="text-2xl font-bold">Mes projets</span>
