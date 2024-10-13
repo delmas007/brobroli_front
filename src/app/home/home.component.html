@@ -12,7 +12,7 @@
           <img src="media/images/travailleur-96.png" alt="" >
           <div class="select-objet">
             <label for="service">Type de service</label>
-            <select [(ngModel)]="searchCriteria.service" name="service" id="service">
+            <select name="" id="" title="Choisir le type de service">
               <option *ngFor="let service of services" [value]="service.value">{{ service.label }}</option>
             </select>
           </div>
@@ -21,8 +21,8 @@
           <img src="media/images/money-96.png" alt="" >
           <div class="select-objet">
             <label for="priceRange">Tranche de prix</label>
-            <select [(ngModel)]="searchCriteria.priceRange" name="priceRange" id="priceRange" title="Choisir la tranche de prix">
-              <option  *ngFor="let range of priceRanges" [value]="range.value">{{ range.label }}</option>
+            <select name="" id="" title="Choisir la tranche de prix">
+              <option *ngFor="let range of priceRanges" [value]="range.value">{{ range.label }}</option>
             </select>
           </div>
         </div>
