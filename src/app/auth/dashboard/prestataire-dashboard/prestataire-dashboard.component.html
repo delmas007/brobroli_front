@@ -2,6 +2,28 @@
     <div class="flex">
         <div class="flex-1 flex flex-col overflow-hidden">
 
+
+            <div class="modal-overlay" *ngIf="modalWithdrawOpen">
+                <div class="modal-content">
+                    <div class="w-full flex justify-end"><button (click)="modalWithdrawOpen = !modalWithdrawOpen" class="close-menu"><span></span></button></div>
+                    <hr class="my-2">
+                    <h4 class="text-center py-1">Retirer votre solde</h4>
+                    <form (ngSubmit)="onWithdrawSubmit()" class="flex flex-col gap-2 justify-between">
+                        <div class="form-group">
+                            <label for="amount">Montant</label>
+                            <input type="text" class="" id="amount">
+                        </div>
+                        <label for="payment-method">Méthode de paiement</label>
+                        <select name="" id="" title="Choisir une méthode de paiement">
+                            <option value="mobile-money">Orange Money</option>
+                            <option value="wave">Wave</option>
+                            <option value="momo">MoMo</option>
+                            <option value="bank-transfer">Moov money</option>
+                        </select>
+                        <button type="submit" class="btn-link w-full flex justify-center">Retirer</button>
+                    </form>
+                </div>
+            </div>
             <header class="bg-white  flex items-center justify-between p-4">
                 <a routerLink="/" class="flex items-center">
                     <img class="logo" src="media/images/Logo.png" alt="">
@@ -33,7 +55,7 @@
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
                     <p class="text-2xl text-center font-bold">647 000 <span>Fcfa</span></p>
-                    <a class="btn-link w-full flex justify-center" href="">Retirer</a>
+                    <a (click)="modalWithdrawOpen = !modalWithdrawOpen" class="btn-link w-full flex justify-center" >Retirer</a>
                 </div>
 
             </section>
