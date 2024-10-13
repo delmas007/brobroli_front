@@ -50,6 +50,13 @@
     transition: all 0.3s ease-in-out;
 
 }
+.error-message{
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
 form{
     width: 100%;
 }

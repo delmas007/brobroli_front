@@ -1,0 +1,52 @@
+<main>
+    <div class="registration-container">
+        <div class="flex justify-center items-center mb-4">
+            <span class="text-2xl font-bold">Complétion de l'inscription {{ userRole === 'provider' ? 'Prestataire' : 'Client' }}</span>
+        </div>
+        
+        <div class="progress-bar">
+          <div class="progress" [style.width]="(currentStep / totalSteps) * 100 + '%'"></div>
+        </div>
+        
+        <form (ngSubmit)="onSubmit()">
+          <div *ngFor="let question of questions[userRole]; let i = index">
+            <div *ngIf="i < (questions[userRole].length / 2) && currentStep === 1 || i >= (questions[userRole].length / 2) && currentStep === 2">
+              <div class="form-row">
+                <label [for]="'question' + i">{{ question.question }}</label>
+                
+                <ng-container [ngSwitch]="question.type">
+                  <input *ngSwitchCase="'text'" 
+                    [id]="'question' + i" 
+                    [(ngModel)]="answers[question.question]" 
+                    [name]="'question' + i" 
+                    type="text" 
+                    required>
+                  
+                  <textarea *ngSwitchCase="'textarea'" 
+                    [id]="'question' + i" 
+                    [(ngModel)]="answers[question.question]" 
+                    [name]="'question' + i" 
+                    required></textarea>
+                  
+                  <select *ngSwitchCase="'select'" 
+                    [id]="'question' + i" 
+                    [(ngModel)]="answers[question.question]" 
+                    [name]="'question' + i" 
+                    required>
+                    <option *ngFor="let option of question.options" [value]="option">{{ option }}</option>
+                  </select>
+                  
+
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <span class="text-center mt-4">En cliquant sur "Terminer", vous acceptez nos <a class="terms-link" routerLink="/terms-and-conditions">conditions d'utilisation</a>.</span>
+          <div class="navigation-buttons">
+            <button type="button" class="btn-link" (click)="previousStep()" [disabled]="currentStep === 1">Précédent</button>
+            <button type="button" class="btn-link" *ngIf="currentStep < totalSteps" (click)="nextStep()">Suivant</button>
+            <button type="submit" class="btn-link" *ngIf="currentStep === totalSteps">Terminer</button>
+          </div>
+        </form>
+      </div>
+</main>

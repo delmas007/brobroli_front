@@ -1,1 +1,115 @@
-<p>prestataire-dashboard works!</p>
+<main>
+    <div class="flex">
+        <div class="flex-1 flex flex-col overflow-hidden">
+
+            <header class="bg-white  flex items-center justify-between p-4">
+                <a routerLink="/" class="flex items-center">
+                    <img class="logo" src="media/images/Logo.png" alt="">
+                </a>
+                <div class="flex items-center">
+                    <button class="flex items-center text-gray-700 mr-4">
+                        <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
+                    </button>
+                    <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
+                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+                    </button>
+
+
+                    <div *ngIf="menuOpen" class="dash-profile-menu bg-white rounded-md shadow-lg py-1">
+                        <div class="w-full flex justify-end"><button (click)="menuOpen = !menuOpen" class="close-menu"><span></span></button></div>
+                        <h4 class="text-center py-1">Menu</h4>
+                        <hr>
+                        <a routerLink="/settings" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">settings</mat-icon> Paramètres</a>
+                        <a routerLink="/login" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">logout</mat-icon> Déconnexion</a>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="dash-section-1">
+                <app-dash-slider-card 
+                [slides]="slidesToShow" 
+                [autoSlide]="true">
+            </app-dash-slider-card>
+                <div class="card right">
+                    <img class="wallet" src="media/images/wallet.png" alt="">
+                    <p class="text-2xl text-center font-bold">647 000 <span>Fcfa</span></p>
+                    <a class="btn-link w-full flex justify-center" href="">Retirer</a>
+                </div>
+
+            </section>
+
+            <section class="dash-section-2">
+                <a routerLink="/projects" class="card card1">
+                    <img class="card-image" loading="lazy" src="media/images/project.png" alt="">
+                    <div class="">
+                        <h5 >Collaboration en attente</h5>
+                        <h4>1 <span>Projet</span></h4>
+                    </div>
+                </a>
+                <div class="card card2">
+                    <img class="card-image" loading="lazy" src="media/images/star.png" alt="">
+                    <div class="">
+                        <h5>Notation</h5>
+                        <div class="stars-container">
+                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                            <img class="star"  loading="lazy" src="media/images/star-empty.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="card card3">
+                    <img class="card-image" src="media/images/money.png" alt="">
+                    <div>
+                        <h5>Total montant gagné</h5>
+                        <h4>647 000 <span>Fcfa</span></h4>
+                    </div>
+                </div>
+            </section>
+            <section class="dash-section-responsive">
+                <div class="card card3">
+                    <img class="card-image" src="media/images/money.png" alt="">
+                    <div>
+                        <h5>Total montant gagné</h5>
+                        <h4>647 000 <span>Fcfa</span></h4>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="dash-section-3">
+                <h2>Projets Récents</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Tâche</th>
+                            <th>Date</th>
+                            <th><p>Statut</p></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dupont SA</td>
+                            <td>Conception site web</td>
+                            <td>15/05/2023</td>
+                            <td><p class="pending"> En cours</p></td>
+                        </tr>
+                        <tr>
+                            <td>Martin EURL</td>
+                            <td>Maintenance serveur</td>
+                            <td>18/05/2023</td>
+                            <td><p class="done">Terminé</p> </td>
+                        </tr>
+                        <tr>
+                            <td>Lefevre & Fils</td>
+                            <td>Développement application</td>
+                            <td>20/05/2023</td>
+                            <td><p class="done">Terminé</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</main>

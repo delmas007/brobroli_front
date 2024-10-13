@@ -6,35 +6,29 @@
   </div>
   <div class="hero-right">
       <h1>Trouver des <span class="main-color">freelancers</span> qualifié pour vos taches</h1>
-      <div class="search-container">
+
+      <form (ngSubmit)="onSearch()" class="search-container">
         <div class="select-container">
           <img src="media/images/travailleur-96.png" alt="" >
           <div class="select-objet">
             <label for="service">Type de service</label>
-            <select  name="service" id="service">
-              <option value="developpement-application">Développement d'application</option>
-              <option value="photographie">Photographie</option>
-              <option value="montage video">Montage vidéo</option>
-              <option value="design graphique">Design graphique</option>
-              <option value="creation site web">Création de site web</option>
-              <option value="developpement mobile">Développement mobile</option>              
+            <select [(ngModel)]="searchCriteria.service" name="service" id="service">
+              <option *ngFor="let service of services" [value]="service.value">{{ service.label }}</option>
             </select>
           </div>
         </div>
         <div class="select-container select2">
           <img src="media/images/money-96.png" alt="" >
           <div class="select-objet">
-            <label for="service">Tranche de prix</label>
-            <select  name="service" id="service">
-              <option value="developpement-application">25k-100k</option>
-              <option value="photographie">100k-300k</option>
-              <option value="montage video">300k-600k</option>
-              <option value="design graphique">600k-1M</option>             
+            <label for="priceRange">Tranche de prix</label>
+            <select [(ngModel)]="searchCriteria.priceRange" name="priceRange" id="priceRange" title="Choisir la tranche de prix">
+              <option  *ngFor="let range of priceRanges" [value]="range.value">{{ range.label }}</option>
             </select>
           </div>
         </div>
           <button type="submit"><img class="icon-search" src="media/images/icon-search.png" alt=""></button>
-      </div>
+      </form>
+
       <div class="skill-marquee-container">
         <span class="skill-marquee-title">Réseaux de services</span>
         <div class="flex">
