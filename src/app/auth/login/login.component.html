@@ -15,13 +15,12 @@
             </p>
             <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
 
-            <form (ngSubmit)="onLogin()" class="login-form">
+            <form  class="login-form" [formGroup]="formLogin" (ngSubmit)="onLogin()">
                 <div class="form-inputs">
                     <label class="font-semibold mb-1" for="username">Nom d'utilisateur</label>
-                    <input type="text" name="username" id="username" placeholder="koffi_masta" [(ngModel)]="username">
-                    
+                    <input type="text" name="username" id="username" placeholder="koffi_masta" formControlName="username">
                     <label class="font-semibold mb-1" for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="********" [(ngModel)]="password">
+                    <input type="password" name="password" id="password" placeholder="********" formControlName="password">
                 </div>
 
                 <div class="flex justify-between items-center mb-6">

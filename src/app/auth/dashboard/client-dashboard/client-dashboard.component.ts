@@ -35,13 +35,13 @@ export class ClientDashboardComponent implements OnInit {
   }
 
   getCurrentUser(): void {
-    this.currentUser = new Person(
-      2, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
-      'Abidjan', '0123456789', 'Bingerville', 'Biographie de Delmas',
-      new Date(), new Date(), 
-      [new Balance(2, 'slug', 247000)], 
-      [{ id: 2, slug: 'utilisateur2', username: 'delmas', password: 'delmas', role: [] }]
-    );
+    // this.currentUser = new Person(
+    //   2, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
+    //   'Abidjan', '0123456789', 'Bingerville', 'Biographie de Delmas',
+    //   new Date(), new Date(),
+    //   [new Balance(2, 'slug', 247000)],
+    //   [{ id: 2, slug: 'utilisateur2', username: 'delmas', password: 'delmas', role: [] }]
+    // );
   }
 
   getBalance(): void {
@@ -58,7 +58,7 @@ export class ClientDashboardComponent implements OnInit {
 
   isProfileComplete(): boolean {
     if (!this.currentUser) return false;
-    return Object.values(this.currentUser).every(value => 
+    return Object.values(this.currentUser).every(value =>
       value !== null && value !== undefined && value !== ''
     );
   }

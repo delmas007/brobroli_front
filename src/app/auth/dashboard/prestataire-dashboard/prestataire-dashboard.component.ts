@@ -33,13 +33,13 @@ export class PrestataireDashboardComponent {
   }
 
   getCurrentUser(): void {
-    this.currentUser = new Person(
-      1, 'utilisateur1', 'Delon', 'Jean-Philippe', 'media/images/profile.png', 'delon@gmail.com',
-      'Abidjan', '0123456789', 'Cocody', 'Biographie de Delon',
-      new Date(), new Date(), 
-      [new Balance(2, 'slug', 247000)], 
-      [{ id: 2, slug: 'utilisateur2', username: 'delon', password: 'delon', role: [] }]
-    );
+    // this.currentUser = new Person(
+    //   1, 'utilisateur1', 'Delon', 'Jean-Philippe', 'media/images/profile.png', 'delon@gmail.com',
+    //   'Abidjan', '0123456789', 'Cocody', 'Biographie de Delon',
+    //   new Date(), new Date(),
+    //   [new Balance(2, 'slug', 247000)],
+    //   [{ id: 2, slug: 'utilisateur2', username: 'delon', password: 'delon', role: [] }]
+    // );
   }
 
   getBalance(): void {
@@ -56,7 +56,7 @@ export class PrestataireDashboardComponent {
 
   isProfileComplete(): boolean {
     if (!this.currentUser) return false;
-    return Object.values(this.currentUser).every(value => 
+    return Object.values(this.currentUser).every(value =>
       value !== null && value !== undefined && value !== ''
     );
   }

@@ -1,15 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from "rxjs";
+import {Inscription} from "../interface/Inscription";
+import {Login} from "../interface/Login";
 @Injectable({
   providedIn: 'root'
 })
 export class BrobroliService {
 
-  readonly apiUrl = 'http://localhost:3000/api';
-  readonly ENDPOINT = "/users";
-  constructor(private httpClient: HttpClient) { }
+  private host : string = 'http://localhost:8080/api';
+  private hostAuth : string = 'http://localhost:8080/authe';
 
-  getUsers(){
-    return this.httpClient.get(`${this.apiUrl}${this.ENDPOINT}`);
+  constructor(private http: HttpClient) { }
+
+  inscriptionProvider(donnee:Inscription): Observable<any> {
+    return this.http.post<any>(`${this.hostAuth}/providers`, donnee);
   }
+  inscriptionCustomer(donnee:Inscription): Observable<any> {
+    return this.http.post<any>(`${this.hostAuth}/customers`, donnee);
+  }
+  login(donnee:Login): Observable<any> {
+    return this.http.post<any>(`${this.hostAuth}/authenticate`, donnee);
+  }
+
 }
