@@ -89,4 +89,6 @@ select:focus{
 }
 
 
-
+select option{
+    color: #686868;
+}

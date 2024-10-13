@@ -11,7 +11,9 @@
                     <a [routerLink]="[]" fragment="securite"><mat-icon>security</mat-icon>Sécurité</a>
                 </div>
                 <div class="">
-                    <a routerLink="/dashboard-prestataire"><mat-icon>dashboard</mat-icon>Dashboard</a>
+                    <a [routerLink]="isProvider ? '/dashboard-prestataire' : '/dashboard-client'">
+                        <mat-icon>dashboard</mat-icon>Dashboard
+                    </a>
                 </div>
             </div>
         </div>
@@ -22,29 +24,28 @@
             <hr>
             <p class="text-gray-600 font-medium">Gérez vos informations personnelles et vos préférences de profil.</p>
             <div class=" font-sans">
-                <div class="container mx-auto  max-w-5xl">
+                <div class="container mx-auto min-h-screen max-w-5xl">
 
                     <header class="bg-white box-shadow1 rounded-xl p-6 mb-6">
                         <div class="relative flex justify-between items-center flex-wrap">
                             <div class="flex justify-start items-center mb-2">
-                                <img class="w-24 h-auto mr-5" src="media/images/profile.png" alt="">
+                                <img class="w-24 h-auto mr-5 rounded-full" [src]="currentUser?.urlProfil" alt="Photo de profil">
                                 <div>
-                                    <h3 class="username">Koffi Masta </h3>
-                                    <h5 class="title-username ">Développeur Fullstack </h5>
+                                    <h3 class="username">{{ currentUser?.firstName }} {{ currentUser?.lastName }}</h3>
+                                    <h5 class="title-username">{{ currentUser?.biographie }}</h5>
                                 </div>
                             </div>
                             <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
                             <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
                         </div>
                         <div class="flex flex-wrap gap-4 text-sm mt-1 text-gray-600">
-                            <p>📧 koffi.devemail.com </p>
-                            <p>📱 06 12 34 56 78 </p>
-                            <p>🌐 www.koffimasta.dev </p>
-                            <p>📍 Abidjan, Côte d'Ivoire </p>
+                            <p>📧 {{ currentUser?.email }}</p>
+                            <p>📱 {{ currentUser?.tel }}</p>
+                            <p>📍 {{ currentUser?.city }}, {{ currentUser?.street }}</p>
                         </div>
                     </header>
 
-                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                    <main *ngIf="isProvider" class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
                             <div class="flex justify-between items-center relative">
                                 <span class="text-4xl font-bold text-gray-800">Résumé</span>
@@ -55,7 +56,7 @@
                         </div>
                     </main>
 
-                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                    <main *ngIf="isProvider" class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
                             <div class="flex justify-between items-center relative">
                                 <span class="text-4xl  font-bold  text-gray-800">Expérience Professionnelle</span>
@@ -82,7 +83,7 @@
                         </div>
                     </main>
 
-                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                    <main *ngIf="isProvider" class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
                             <div class="flex justify-between items-center relative">
                                 <span class="text-4xl font-bold text-gray-800 mb-3 flex items-center gap-2">Compétences</span>
@@ -103,7 +104,7 @@
                         </div>
                     </main>
 
-                    <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                    <main *ngIf="isProvider" class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
                         <div class="mb-6">
                             <div class="flex justify-between items-center relative">
                                 <span class="text-4xl font-bold text-gray-800 mb-3">Formation</span>
@@ -117,6 +118,7 @@
                         </div>
                     </main>
 
+
                 </div>
             </div>
         </section>
@@ -124,34 +126,44 @@
             <h2>Mon portefeuille</h2>
             <p class="text-gray-600 font-medium">Consultez et gérez vos transactions financières.</p>
             <main class="h-2/3 bg-white box-shadow1 rounded-2xl p-6 mb-6">
-                <div class="mb-6">
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center relative">
-                        <div class="visa-card bg-gradient-to-r from-black via-gray-800 to-black text-white rounded-xl p-4 mb-4 md:mb-0 md:mr-4 w-full">
-                            <div class="flex justify-between items-center mb-4">
-                                <img src="media/images/visa.png" alt="Visa Logo" class="w-16 h-auto">
-                            </div>
-                            <div class="mb-4">
-                                <span class="text-sm">Numéro de carte</span>
-                                <p class="text-xl font-semibold">**** **** **** 1234</p>
-                            </div>
-                            <div class="flex justify-between">
-                                <div>
-                                    <span class="text-sm">Titulaire</span>
-                                    <p class="text-lg font-medium">Koffi Masta</p>
-                                </div>
-                                <div>
-                                    <span class="text-sm">Expiration</span>
-                                    <p class="text-lg font-medium">12/24</p>
-                                </div>
-                            </div>
+            <div class="mb-6">
+                <div class="flex justify-between items-center relative">
+                    <span class="text-lg font-medium text-gray-800 mb-4">Paramétrage Portefeuille </span>
+                    <button class="btn-edit">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
+                    <button class="btn-edit-responsive"><mat-icon class="text-base">edit</mat-icon></button>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <label for="mobile-money-number" class="block text-sm font-medium text-gray-700">Numéro Mobile Money</label>
+                            <input type="text" id="mobile-money-number" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" placeholder="Entrez votre numéro Mobile Money">
                         </div>
-                        <div class="flex flex-col  gap-2 w-full">
-                            <button class="btn-edit flex items-center justify-center">Modifier <mat-icon class="text-lg">edit</mat-icon></button>
-                            <button class="btn-edit flex items-center justify-center">Supprimer <mat-icon class="text-lg">delete</mat-icon></button>
+                        <div class="flex-1">
+                            <label for="mobile-money-provider" class="block text-sm font-medium text-gray-700">Fournisseur Mobile Money</label>
+                            <select id="mobile-money-provider" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                                <option value="orange-money">Orange Money</option>
+                                <option value="wave">Wave</option>
+                                <option value="momo">MoMo</option>
+                                <option value="moov-money">Moov Money</option>
+                            </select>
                         </div>
                     </div>
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <div class="flex-1">
+                            <label for="amount" class="block text-sm font-medium text-gray-700">Montant</label>
+                            <input type="text" id="amount" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm" placeholder="Entrez le montant">
+                        </div>
+                        <div class="flex-1">
+                            <label for="transaction-type" class="block text-sm font-medium text-gray-700">Type de Transaction</label>
+                            <select id="transaction-type" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary sm:text-sm">
+                                <option value="recharge">Recharger</option>
+                                <option value="withdraw">Retirer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-link w-full flex justify-center mt-4">Soumettre</button>
                 </div>
-
+            </div>
             </main>
         </section>
         <section class="min-h-screen" id="notifications">
@@ -188,7 +200,33 @@
         <section id="securite">
             <h2>Sécurité</h2>
             <p class="text-gray-600 font-medium">Gérez vos paramètres de sécurité et de confidentialité.</p>
-            <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6"></main>
+            <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+            <div class="mb-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center relative">
+                    <div class="w-full">
+                        <h3 class="text-lg font-medium text-gray-800 mb-4">Paramètres de sécurité</h3>
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Activer l'authentification à deux facteurs</span>
+                                <mat-slide-toggle color="primary"></mat-slide-toggle>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Recevoir des alertes de connexion</span>
+                                <mat-slide-toggle color="primary"></mat-slide-toggle>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Changer le mot de passe</span>
+                                <button class="btn-link text-primary">Modifier</button>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">Configurer les questions de sécurité</span>
+                                <button class="btn-link text-primary">Configurer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </main>
         </section>
     </div>
 </main>

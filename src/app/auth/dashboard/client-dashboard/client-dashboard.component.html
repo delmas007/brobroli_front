@@ -2,6 +2,49 @@
     <div class="flex">
         <div class="flex-1 flex flex-col overflow-hidden">
 
+            <div class="modal-overlay" *ngIf="modalPayOpen">
+                <div class="modal-content">
+                    <div class="w-full flex justify-end"><button (click)="modalPayOpen = !modalPayOpen" class="close-menu"><span></span></button></div>
+                    <hr class="my-2">
+                    <h4 class="text-center py-1">Recharger votre solde</h4>
+                    <form (ngSubmit)="onPaySubmit()" class="flex flex-col gap-2 justify-between">
+                        <div class="form-group">
+                            <label for="amount">Montant</label>
+                            <input type="text" class="" id="amount">
+                        </div>
+                        <label for="payment-method">Méthode de paiement</label>
+                        <select name="" id="" title="Choisir une méthode de paiement">
+                            <option value="mobile-money">Orange Money</option>
+                            <option value="wave">Wave</option>
+                            <option value="momo">MoMo</option>
+                            <option value="bank-transfer">Moov money</option>
+                        </select>
+                        <button type="submit" class="btn-link w-full flex justify-center">Recharger</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-overlay" *ngIf="modalWithdrawOpen">
+                <div class="modal-content">
+                    <div class="w-full flex justify-end"><button (click)="modalWithdrawOpen = !modalWithdrawOpen" class="close-menu"><span></span></button></div>
+                    <hr class="my-2">
+                    <h4 class="text-center py-1">Retirer votre solde</h4>
+                    <form (ngSubmit)="onWithdrawSubmit()" class="flex flex-col gap-2 justify-between">
+                        <div class="form-group">
+                            <label for="amount">Montant</label>
+                            <input type="text" class="" id="amount">
+                        </div>
+                        <label for="payment-method">Méthode de paiement</label>
+                        <select name="" id="" title="Choisir une méthode de paiement">
+                            <option value="mobile-money">Orange Money</option>
+                            <option value="wave">Wave</option>
+                            <option value="momo">MoMo</option>
+                            <option value="bank-transfer">Moov money</option>
+                        </select>
+                        <button type="submit" class="btn-link w-full flex justify-center">Retirer</button>
+                    </form>
+                </div>
+            </div>
             <header class="bg-white  flex items-center justify-between p-4">
                 <a routerLink="/" class="flex items-center">
                     <img class="logo" src="media/images/Logo.png" alt="">
@@ -12,7 +55,7 @@
                         <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
                     </button>
                     <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
-                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" [src]="currentUser?.urlProfil" alt="Photo de profil">
                     </button>
 
 
@@ -29,13 +72,16 @@
             </header>
             
             <section class="dash-section-1">
-                <app-dash-slider-card [slides]="slides"  [autoSlide]="true"></app-dash-slider-card>
+                <app-dash-slider-card 
+                    [slides]="slidesToShow" 
+                    [autoSlide]="true">
+                </app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
-                    <p class="text-2xl text-center font-bold">247 000 <span>Fcfa</span></p>
+                    <p class="text-2xl text-center font-bold"> <span>{{ balance }} Fcfa</span></p>
                     <div class="flex gap-2">
-                        <a class="btn-link w-full flex justify-center" href="">Recharger</a>
-                        <a class="btn-link w-full flex justify-center" href="">Retirer</a>
+                        <a (click)="modalPayOpen = !modalPayOpen" class="btn-link w-full flex justify-center">Recharger</a>
+                        <a (click)="modalWithdrawOpen = !modalWithdrawOpen" class="btn-link w-full flex justify-center" >Retirer</a>
                     </div>
 
                 </div>
@@ -64,15 +110,7 @@
 
 
             </section>
-            <!-- <section class="dash-section-responsive">
-                <div class="card card3">
-                    <img class="card-image" src="media/images/money.png" alt="">
-                    <div>
-                        <h5>Total montant gagné</h5>
-                        <span>647 000 <span>Fcfa</span></span>
-                    </div>
-                </div>
-            </section> -->
+
         
             <section class="dash-section-3">
                 <h2>Projets Récents</h2>

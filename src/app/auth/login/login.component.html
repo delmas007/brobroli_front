@@ -1,21 +1,29 @@
 <main class="login-main">
-    <section  class="left">
-        <img loading="lazy"  src="media/images/login.jpg" alt="">
+    <section class="left">
+        <img loading="lazy" src="media/images/login.jpg" alt="">
     </section>
     <section data-aos="zoom-in" class="right">
         <div>
-            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"><img class="logo"  src="media/images/Logo.png" alt=""></a>
+            <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page">
+                <img class="logo" src="media/images/Logo.png" alt="">
+            </a>
         </div>
-        <div >
-            <h1>Bon retour parmis nous !</h1>
-            <p class="mb-6 text-center text-gray-500">Entrez votre nom utilisateur et votre mot de passe pour continuer</p>
-            <form action="/dashboard-client" method="post">
+        <div>
+            <h1>Bon retour parmi nous !</h1>
+            <p class="mb-6 text-center text-gray-500">
+                Entrez votre nom utilisateur et votre mot de passe pour continuer
+            </p>
+            <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+            <form (ngSubmit)="onLogin()" class="login-form">
                 <div class="form-inputs">
                     <label class="font-semibold mb-1" for="username">Nom d'utilisateur</label>
-                    <input type="text" name="username" id="username" placeholder="koffi_masta">
+                    <input type="text" name="username" id="username" placeholder="koffi_masta" [(ngModel)]="username">
+                    
                     <label class="font-semibold mb-1" for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="********">
+                    <input type="password" name="password" id="password" placeholder="********" [(ngModel)]="password">
                 </div>
+
                 <div class="flex justify-between items-center mb-6">
                     <div class="remember-me-container">
                         <input type="checkbox" name="remember" id="remember">
@@ -23,10 +31,10 @@
                     </div>
                     <a class="text-forget-mdp" href="http://">Mot de passe oublié</a>
                 </div>
+
                 <button class="btn-link btn-submit" type="submit">Se connecter</button>
             </form>
         </div>
-        <p class="register-text">Vous n'etes pas encore inscris ? <a routerLink="/register">inscrivez vous</a ></p>
-
+        <p class="register-text">Vous n'êtes pas encore inscrit ? <a routerLink="/register">Inscrivez-vous</a></p>
     </section>
 </main>
