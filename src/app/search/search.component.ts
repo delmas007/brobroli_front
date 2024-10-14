@@ -13,13 +13,19 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class SearchComponent {
   modalCollabOpen = false;
+  solde: number = 0;
+  abuy: number = 85000;
+  errorMessage: string = '';
+  showPayButton: boolean = true;
 
   constructor(private router: Router) {}
 
-
-
-  onCollabSubmit(){
-    this.router.navigate(['/profile']);
-
+  onCollabSubmit() {
+    if (this.solde < this.abuy) {
+      this.errorMessage = "Votre solde est insuffisant pour effectuer cette collaboration. Veuillez recharger votre compte.";
+      this.showPayButton = false;
+    } else {
+      this.router.navigate(['/profile']);
+    }
   }
 }
