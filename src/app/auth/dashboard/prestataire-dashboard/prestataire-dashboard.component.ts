@@ -75,4 +75,10 @@ export class PrestataireDashboardComponent {
       return this.slides;
     }
   }
+  onPaySubmit(): void {
+    console.log('Rechargement du solde');
+  }
+  onWithdrawSubmit(): void {
+    console.log('Retrait du solde');
+  }
 }
