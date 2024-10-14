@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { Person } from '../../interface/person';
-import { User } from '../../interface/user';
+import { Person } from '../../domains/interfaces/person';
+import { User } from '../../domains/interfaces/user';
 
 @Component({
   selector: 'app-final-registration',

@@ -4,14 +4,15 @@ import { DashSliderCardComponent } from '../../../components/dash-slider-card/da
 import { Component, OnInit } from '@angular/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { Person } from '../../../interface/person';
-import { User } from '../../../interface/user';
-import { Balance } from '../../../interface/balance';
+import { Person } from '../../../domains/interfaces/person';
+import { User } from '../../../domains/interfaces/user';
+import { Balance } from '../../../domains/interfaces/balance';
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-client-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule, FormsModule],
   templateUrl: './client-dashboard.component.html',
   styleUrls: ['./client-dashboard.component.css']
 })
@@ -35,13 +36,7 @@ export class ClientDashboardComponent implements OnInit {
   }
 
   getCurrentUser(): void {
-    // this.currentUser = new Person(
-    //   2, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
-    //   'Abidjan', '0123456789', 'Bingerville', 'Biographie de Delmas',
-    //   new Date(), new Date(),
-    //   [new Balance(2, 'slug', 247000)],
-    //   [{ id: 2, slug: 'utilisateur2', username: 'delmas', password: 'delmas', role: [] }]
-    // );
+
   }
 
   getBalance(): void {

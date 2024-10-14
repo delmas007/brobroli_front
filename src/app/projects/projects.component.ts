@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { Person } from '../interface/person';
-import { User } from '../interface/user';
-import { Balance } from '../interface/balance'; 
+import { Person } from '../domains/interfaces/person';
+import { User } from '../domains/interfaces/user';
+import { Balance } from '../domains/interfaces/balance';
 
 @Component({
   selector: 'app-projects',
@@ -35,8 +35,8 @@ export class ProjectsComponent implements OnInit {
     this.currentUser = new Person(
       1, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
       'Abidjan', '0123456789', 'Bingerville', 'Développeur Fullstack',
-      new Date(), new Date(), 
-      [new Balance(2, 'slug', 247000)], 
+      new Date(), new Date(),
+      [new Balance(2, 'slug', 247000)],
       [{ id: 2, slug: 'utilisateur2', username: 'delmas', password: 'delmas', role: [{id: 1, name: 'customer'}] }]
     );
   }

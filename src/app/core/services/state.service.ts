@@ -11,9 +11,7 @@ export class StateService {
     isAuthenticated : false,
     username : undefined,
     role : undefined,
-    name : undefined,
-    prenom : undefined,
-    email : undefined,
+    token: undefined,
   }
 
   constructor() {
@@ -27,10 +25,8 @@ export class StateService {
       this.authState={
         isAuthenticated: true,
         username: decodedJwt.sub,
-        name: decodedJwt.name,
-        prenom: decodedJwt.prenom,
         id: decodedJwt.id,
-        role: decodedJwt.scope,
+        role: decodedJwt.auth,
         token: token
       };
     }
