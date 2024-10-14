@@ -257,6 +257,7 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     .hamburger {display: flex!important;}
     .navbar h3{font-size: 1.5rem;}
     .settings-page aside{display: none !important;}
+    .registration-container {width: 60%!important;}
 }
 
 @media only screen and (max-width: 768px){
@@ -274,6 +275,8 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     .wallet{height: 100px !important;}
     .aside-filter{display: none !important;}
     .search-section1 img{display: block!important;}
+    .registration-container {width: 70%!important;}
+
 }
 @media only screen and (max-width:600px) {
     .dash-section-2 .card{padding: 0.5rem !important;}
@@ -320,6 +323,8 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     .dash-section-1,.dash-section-2,.dash-section-3,.dash-section-responsive{padding: 0.5rem !important;}
     .stars-container .star{height: 8px !important;}
     .point-slide{margin-top: 0rem !important;}
+    .registration-container {width: 85%!important;}
+
 
 }
 html, body { height: 100%; }

@@ -72,7 +72,7 @@ export class PrestataireDashboardComponent implements OnInit {
   this.slides = [
     {imageSrc:'media/images/fiche.png', imageAlt:'Freelancer', title:'Inscription incomplète', text: 'Veuillez terminer votre inscription pour débuter une collaboration.', url:'/final-registration', btnText:'Finaliser' },
     {imageSrc:'media/images/freelancer.png', imageAlt:'Freelancer', title: `Bonjour, ${this.currentUser?.firstName || ''}`, text: 'Consultez toutes les collaborations en attente sur votre profil pour débuter un service.', url:'/projects', btnText:'Voir les projets' },
-    {imageSrc:'media/images/freelancer-f.png', imageAlt:'Freelancer', title:'Bonjour, Masta', text: 'Collaboration 2 en attente.', url:'/', btnText:'Voir les projets' }
+    {imageSrc:'media/images/ajouter-service.png', imageAlt:'Freelancer', title:'Bonjour, Masta', text: 'Ajouter les services que vous offrez.', url:'/add-service', btnText:'Ajouter les services' }
     ];
   }
 
