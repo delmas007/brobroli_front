@@ -49,13 +49,14 @@
                 <a routerLink="/" class="flex items-center">
                     <img class="logo" src="media/images/Logo.png" alt="">
                 </a>
-                
+
                 <div class="flex items-center">
                     <button class="flex items-center text-gray-700 mr-4">
                         <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
                     </button>
                     <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
-                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" [src]="currentUser?.urlProfil" alt="Photo de profil">
+
+                        <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile-delmas.png" alt="Photo de profil">
                     </button>
 
 
@@ -70,10 +71,10 @@
                     </div>
                 </div>
             </header>
-            
+
             <section class="dash-section-1">
-                <app-dash-slider-card 
-                    [slides]="slidesToShow" 
+                <app-dash-slider-card
+                    [slides]="slidesToShow"
                     [autoSlide]="true">
                 </app-dash-slider-card>
                 <div class="card right">
@@ -106,12 +107,12 @@
                     </div>
                 </div>
 
-                
+
 
 
             </section>
 
-        
+
             <section class="dash-section-3">
                 <h2>Projets Récents</h2>
                 <table>

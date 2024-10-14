@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { NavbarComponent } from '../../navbar/navbar.component';
-import { User } from '../../interface/user';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { User } from '../../domains/interfaces/user';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import * as AOS from 'aos';
-import {Login} from "../../interface/Login";
-import {BrobroliService} from "../../services/brobroli.service";
+import {Login} from "../../domains/interfaces/Login";
+import {BrobroliService} from "../../core/services/brobroli.service";
+import {StateService} from "../../core/services/state.service";
 
 @Component({
   selector: 'app-login',
@@ -21,18 +22,20 @@ export class LoginComponent implements OnInit {
   formLogin!: FormGroup;
   user: Login = {
     userName: '',
-    password: ''
+    password: '',
+    rememberMe: false
   };
 
 
-  constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService) {
+  constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService,private state:StateService) {
   }
 
 
   ngOnInit(): void {AOS.init();
     this.formLogin = this.fb.group({
-      username: this.fb.control(""),
-      password: this.fb.control("")
+      username: this.fb.control("", [Validators.required]),
+      password: this.fb.control("", [Validators.required]),
+      rememberMe: this.fb.control(false)
     });
   }
 
@@ -44,7 +47,20 @@ export class LoginComponent implements OnInit {
       this.errorMessage = "Veuillez corriger les erreurs dans le formulaire.";
       return;
     }
-
-    this.router.navigate(['/home']);
-  }
+    this.service.login(this.user).subscribe(
+      data => {
+        localStorage.setItem('token', data.id_token);
+        this.state.loadToken();
+        if (this.state.authState.role === 'SCOPE_CUSTOMER') {
+          this.router.navigate(['/dashboard-client']);
+        }
+        if (this.state.authState.role === 'SCOPE_PROVIDER') {
+          this.router.navigate(['/dashboard-prestataire']);
+        }
+      },
+      error => {
+        this.errorMessage = error.error.message;
+      }
+    );
 }
+  }

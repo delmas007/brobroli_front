@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
 import * as AOS from 'aos';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import { User } from '../../interface/user';
-import {Inscription} from "../../interface/Inscription";
-import {BrobroliService} from "../../services/brobroli.service";
+import { User } from '../../domains/interfaces/user';
+import {Inscription} from "../../domains/interfaces/Inscription";
+import {BrobroliService} from "../../core/services/brobroli.service";
 import {of} from "rxjs";
 @Component({
   selector: 'app-register',

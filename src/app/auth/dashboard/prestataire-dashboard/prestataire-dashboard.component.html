@@ -46,16 +46,16 @@
                     </div>
                 </div>
             </header>
-            
+
             <section class="dash-section-1">
-                <app-dash-slider-card 
-                [slides]="slidesToShow" 
+                <app-dash-slider-card
+                [slides]="slidesToShow"
                 [autoSlide]="true">
             </app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
-                    <p class="text-2xl text-center font-bold">647 000 <span>Fcfa</span></p>
-                    <a (click)="modalWithdrawOpen = !modalWithdrawOpen" class="btn-link w-full flex justify-center" >Retirer</a>
+                  <p class="text-2xl text-center font-bold">{{ balance ? balance : 0 }} <span>Fcfa</span></p>
+                  <a (click)="modalWithdrawOpen = !modalWithdrawOpen" class="btn-link w-full flex justify-center" >Retirer</a>
                 </div>
 
             </section>
@@ -98,7 +98,7 @@
                     </div>
                 </div>
             </section>
-        
+
             <section class="dash-section-3">
                 <h2>Projets Récents</h2>
                 <table>

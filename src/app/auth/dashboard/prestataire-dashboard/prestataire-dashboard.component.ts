@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule,  } from '@angular/common';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { DashSliderCardComponent } from '../../../components/dash-slider-card/dash-slider-card.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { Person } from '../../../interface/person';
-import { User } from '../../../interface/user';
-import { Balance } from '../../../interface/balance';
+import { Person } from '../../../domains/interfaces/person';
+import { User } from '../../../domains/interfaces/user';
+import { Balance } from '../../../domains/interfaces/balance';
+import {BrobroliService} from "../../../core/services/brobroli.service";
+import {StateService} from "../../../core/services/state.service";
 
 @Component({
   selector: 'app-prestataire-dashboard',
@@ -15,31 +17,37 @@ import { Balance } from '../../../interface/balance';
   templateUrl: './prestataire-dashboard.component.html',
   styleUrl: './prestataire-dashboard.component.css'
 })
-export class PrestataireDashboardComponent {
+export class PrestataireDashboardComponent implements OnInit {
+  constructor(private service: BrobroliService,private state: StateService) {
+  }
   menuOpen = false;
-  modalPayOpen = false;
   modalWithdrawOpen = false;
 
-  balance: number = 0;
+  balance: any ;
   currentUser: Person | null = null;
   users: User[] = [];
   slides: any[] = [];
 
   ngOnInit(): void {
+    this.getProlfil();
     this.getCurrentUser();
     this.getBalance();
     this.getUsers();
     this.initializeSlides();
   }
+  getProlfil(): void {
+    this.service.getProvider(this.state.authState.id).subscribe(
+      data => {
+        console.log(data);
+        this.balance= data.balance.sum
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
   getCurrentUser(): void {
-    // this.currentUser = new Person(
-    //   1, 'utilisateur1', 'Delon', 'Jean-Philippe', 'media/images/profile.png', 'delon@gmail.com',
-    //   'Abidjan', '0123456789', 'Cocody', 'Biographie de Delon',
-    //   new Date(), new Date(),
-    //   [new Balance(2, 'slug', 247000)],
-    //   [{ id: 2, slug: 'utilisateur2', username: 'delon', password: 'delon', role: [] }]
-    // );
   }
 
   getBalance(): void {
