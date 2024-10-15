@@ -9,36 +9,42 @@
         </div>
         
         <form (ngSubmit)="onSubmit()">
-          <div *ngFor="let question of questions[userRole]; let i = index">
-            <div *ngIf="i < (questions[userRole].length / 2) && currentStep === 1 || i >= (questions[userRole].length / 2) && currentStep === 2">
-              <div class="form-row">
-                <label [for]="'question' + i">{{ question.question }}</label>
+          <div *ngFor="let questionGroup of questions[userRole][currentStep - 1]; let i = index">
+            <div class="form-row">
+              <label [for]="'question' + i">{{ questionGroup.question }}</label>
+              
+              <ng-container [ngSwitch]="questionGroup.type">
+                <input *ngSwitchCase="'text'" 
+                  [id]="'question' + i" 
+                  [(ngModel)]="answers[questionGroup.question]" 
+                  [name]="'question' + i" 
+                  type="text" 
+                  required>
                 
-                <ng-container [ngSwitch]="question.type">
-                  <input *ngSwitchCase="'text'" 
-                    [id]="'question' + i" 
-                    [(ngModel)]="answers[question.question]" 
-                    [name]="'question' + i" 
-                    type="text" 
-                    required>
-                  
-                  <textarea *ngSwitchCase="'textarea'" 
-                    [id]="'question' + i" 
-                    [(ngModel)]="answers[question.question]" 
-                    [name]="'question' + i" 
-                    required></textarea>
-                  
-                  <select *ngSwitchCase="'select'" 
-                    [id]="'question' + i" 
-                    [(ngModel)]="answers[question.question]" 
-                    [name]="'question' + i" 
-                    required>
-                    <option *ngFor="let option of question.options" [value]="option">{{ option }}</option>
-                  </select>
-                  
-
-                </ng-container>
-              </div>
+                <textarea *ngSwitchCase="'textarea'" 
+                  [id]="'question' + i" 
+                  [(ngModel)]="answers[questionGroup.question]" 
+                  [name]="'question' + i" 
+                  required></textarea>
+                
+                <select *ngSwitchCase="'select'" 
+                  [id]="'question' + i" 
+                  [(ngModel)]="answers[questionGroup.question]" 
+                  [name]="'question' + i" 
+                  required>
+                  <option *ngFor="let option of questionGroup.options" [value]="option">{{ option }}</option>
+                </select>
+                
+                <div *ngSwitchCase="'checkbox'">
+                  <div *ngFor="let option of questionGroup.options; let j = index">
+                    <input type="checkbox" 
+                      [id]="'question' + i + '_' + j"
+                      [(ngModel)]="answers[questionGroup.question][j]"
+                      [name]="'question' + i + '_' + j">
+                    <label [for]="'question' + i + '_' + j">{{ option }}</label>
+                  </div>
+                </div>
+              </ng-container>
             </div>
           </div>
           <span class="text-center mt-4">En cliquant sur "Terminer", vous acceptez nos <a class="terms-link" routerLink="/terms-and-conditions">conditions d'utilisation</a>.</span>

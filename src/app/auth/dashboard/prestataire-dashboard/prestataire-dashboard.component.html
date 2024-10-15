@@ -1,8 +1,6 @@
 <main>
     <div class="flex">
         <div class="flex-1 flex flex-col overflow-hidden">
-
-
             <div class="modal-overlay" *ngIf="modalWithdrawOpen">
                 <div class="modal-content">
                     <div class="w-full flex justify-end"><button (click)="modalWithdrawOpen = !modalWithdrawOpen" class="close-menu"><span></span></button></div>
@@ -54,8 +52,8 @@
             </app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">
-                  <p class="text-2xl text-center font-bold">{{ balance ? balance : 0 }} <span>Fcfa</span></p>
-                  <a (click)="modalWithdrawOpen = !modalWithdrawOpen" class="btn-link w-full flex justify-center" >Retirer</a>
+                    <p class="text-2xl text-center font-bold">{{ balance ? balance : 0 }} <span>Fcfa</span></p>
+                    <a (click)="modalWithdrawOpen = !modalWithdrawOpen" class="btn-link w-full flex justify-center" >Retirer</a>
                 </div>
 
             </section>
@@ -65,20 +63,13 @@
                     <img class="card-image" loading="lazy" src="media/images/project.png" alt="">
                     <div class="">
                         <h5 >Collaboration en attente</h5>
-                        <h4>1 <span>Projet</span></h4>
+                        <h4>1</h4>
                     </div>
                 </a>
                 <div class="card card2">
-                    <img class="card-image" loading="lazy" src="media/images/star.png" alt="">
                     <div class="">
-                        <h5>Notation</h5>
-                        <div class="stars-container">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
-                            <img class="star"  loading="lazy" src="media/images/star-empty.png" alt="">
-                        </div>
+                        <h5>Ajout de compétences</h5>
+                        <a routerLink="/add-competence" class="btn-link w-full flex justify-center" >Ajouter</a>
                     </div>
                 </div>
                 <div class="card card3">

@@ -11,9 +11,9 @@
                 </p>
                 <p>Votre paiement sera sur un compte bloqué et sera délivré au prestataire lorsque vous aurez validé la fin de la collaboration.</p>
                 <p>Vous avez la possibilité d'annuler cette collaboration et vous faire rembourser tant que le prestataire n'a pas encore accepté votre demande.</p>
-                <div *ngIf="errorMessage" class="transition-all duration-300">
+                <div *ngIf="errorMessage" class="transition-all duration-300 text-center">
                     <p class="error-message">{{errorMessage}}</p>
-                    <a routerLink="/dashboard-client" class="btn-link w-full flex justify-center transition-all duration-300">Recharger mon compte</a>
+                    <a routerLink="/dashboard-client" class="btn-link w-full flex justify-center transition-all duration-300">{{btnErrorText}}</a>
                 </div>
                 <button *ngIf="showPayButton" (click)="onCollabSubmit()" class="btn-link w-full">Payer</button>
             </div>
@@ -38,7 +38,7 @@
                     </select>
                 </div>
                 <div class="flex flex-col gap-2">
-                    <label class="text-sm font-medium">Catégorie</label>
+                    <label class="text-sm font-medium">Compétences</label>
                     <select class="input-style">
                         <option>Design</option>
                         <option>Développement</option>
@@ -53,10 +53,7 @@
                         <option>Freelance</option>
                     </select>
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label class="text-sm font-medium">Localisation</label>
-                    <input type="text" class="input-style" placeholder="Entrez une ville">
-                </div>
+
                 <div class="flex flex-col gap-2">
                     <label class="text-sm font-medium">Salaire</label>
                     <input type="range" id="range1"/>
@@ -108,18 +105,18 @@
                         <div class="saved"><mat-icon>bookmark</mat-icon></div>
                     </div>
                     <div class="flex justify-between items-center">
-                        <h4 class="text-titre">Senior UI/UX Designer </h4>
+                        <h4 class="text-titre">Dev Backend Junior </h4>
                         <mat-icon>monitor</mat-icon>
                     </div>
                     <div class="work-mode">
-                        <span>Remote</span>
-                        <span>Full Time</span>
-                        <span>Design</span>
+                        <span>Java</span>
+                        <span>Docker</span>
+                        <span>Api-Rest</span>
                     </div>
                 </div>
                 <div class="card-bottom">
                     <div>
-                        <p class="price">85K</p>
+                        <p class="price">600K</p>
                         <p class="location">Cocody</p>
                     </div>
                     <a (click)="modalCollabOpen = !modalCollabOpen"  class="btn-link">Collaborer</a>
@@ -138,14 +135,13 @@
                         <div class="saved"><mat-icon>bookmark</mat-icon></div>
                     </div>
                     <div class="flex justify-between items-center">
-                        <h4 class="text-titre">Senior UI/UX Designer </h4>
+                        <h4 class="text-titre">Senior Dev Full Stack </h4>
                         <mat-icon>monitor</mat-icon>
                     </div>
                     <div class="work-mode">
-                        <span>Remote</span>
-                        <span>Full Time</span>
-                        <span>Design</span>
-                    </div>
+                        <span>Mern Stack</span>
+                        <span>Next.js</span>
+                        </div>
                 </div>
                 <div class="card-bottom">
                     <div>

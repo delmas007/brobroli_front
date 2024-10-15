@@ -1,4 +1,6 @@
 <main>
+    
+
     <header class="bg-white  flex items-center justify-between p-4">
         <a routerLink="/" class="flex items-center">
             <img class="logo" src="media/images/Logo.png" alt="">
@@ -52,9 +54,8 @@
                 </div>
             </div>
         </div>
-
-
     </section>
+    
     <section class="dash-section-3">
         <span class="text-2xl font-bold">Mes projets</span>
         <table>
@@ -64,32 +65,35 @@
                     <th>Tâche</th>
                     <th>Date</th>
                     <th>Statut</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Delon</td>
-                    <td>Conception site web</td>
-                    <td>15/05/2023</td>
-                    <td><p class="pending"> En cours</p></td>
-                </tr>
-                <tr>
-                    <td>Delmas</td>
-                    <td>Maintenance serveur</td>
-                    <td>18/05/2023</td>
-                    <td><p class="done">Terminé</p> </td>
-                </tr>
-                <tr>
-                    <td>Delmas</td>
-                    <td>Développement application</td>
-                    <td>20/05/2023</td>
-                    <td><p class="done">Terminé</p></td>
-                </tr>
-                <tr>
-                    <td>Soum</td>
-                    <td>Développement application</td>
-                    <td>20/05/2023</td>
-                    <td><p class="done">Terminé</p></td>
+                <tr *ngFor="let project of projects">
+                    <td>{{ project.freelancer }}</td>
+                    <td>{{ project.task }}</td>
+                    <td>{{ project.date }}</td>
+                    <td><p [ngClass]="{'pending': project.status === 'En cours', 'done': project.status === 'Terminé'}">{{ project.status }}</p></td>
+                    <td *ngIf="project.status === 'Terminé'" class="flex justify-center relative">
+                        <a class="cursor-pointer" (click)="onShowMenu(project.id)">
+                            <mat-icon>more_vert</mat-icon>
+                        </a>
+
+                        <div *ngIf="menuProjectOpen && selectedProjectId === project.id" class="overlay-menu">
+                            <div class="w-full flex justify-end"><button (click)="menuProjectOpen = !menuProjectOpen" class="close-menu"><span></span></button></div>
+                            <a (click)="onDownloadInvoice(project.id)" class="flex my-2 items-center gap-2">
+                                <mat-icon>download</mat-icon>
+                                Télécharger la facture
+                            </a>
+                            <hr>
+                            <a (click)="onDeleteProject(project.id)" class="flex my-2 items-center gap-2">
+                                <mat-icon>delete</mat-icon>
+                                Supprimer le projet
+                            </a>
+                            <hr>
+                        </div>
+
+                    </td>
                 </tr>
             </tbody>
         </table>

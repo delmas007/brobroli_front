@@ -4,7 +4,7 @@
         <div class="flex flex-col justify-between w-full">
             <p class="dash-section-1-card-left-titre">{{slide.title}}</p>
             <h3 class="dash-section-1-card-left-text">{{slide.text}}</h3>
-            <a routerLink="{{slide.url}}" class="btn-link dash-section-card-left-1-btn-link">{{slide.btnText}}</a>
+            <a (click)="executeAction(slide.action)" [routerLink]="slide.url" class="btn-link dash-section-card-left-1-btn-link">{{slide.btnText}}</a>
         </div>
     </div>
     <div *ngIf="indicators" class="point-slide">

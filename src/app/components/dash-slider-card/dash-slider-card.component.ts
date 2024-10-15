@@ -8,6 +8,7 @@ interface Slide {
   title: string;
   text: string;
   url: string;
+  action: string;
   btnText: string;
 }
 
@@ -24,7 +25,7 @@ export class DashSliderCardComponent implements OnInit, OnDestroy {
   @Input() slides: Slide[] = [];
   @Input() indicators = true;
   @Input() autoSlide = false;
-
+  @Input() parentComponent: any;
 
   selectedSlide = 0;
 
@@ -38,7 +39,15 @@ export class DashSliderCardComponent implements OnInit, OnDestroy {
 
   startAutoSlide(): void {}
 
-  selectSlide(index: number): void {
-    this.selectedSlide = index;
+  selectSlide(index: number): void {this.selectedSlide = index;}
+
+  executeAction(action: string | undefined): void {
+    if (action && this.parentComponent) {
+      const [property, value] = action.split('=').map(item => item.trim());
+      if (this.parentComponent.hasOwnProperty(property)) {
+        this.parentComponent[property] = value === 'true' ? true : value === 'false' ? false : value;
+      }
+    }
   }
+
 }

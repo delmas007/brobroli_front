@@ -1,4 +1,4 @@
- export interface Inscription {
+export interface Inscription {
   "email": string,
   "user": {
     "userName": string,
