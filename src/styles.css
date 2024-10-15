@@ -184,7 +184,13 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     display: flex;
     animation: wipe-in-up 0.5s ease forwards;
 }
-
+.dash-section-3{
+    overflow-x: scroll;
+    overflow-y:visible;
+}
+table{
+    overflow-y:visible!important;
+}
 .overlay-menu.active{
     position: fixed;
     z-index: 4;
@@ -258,6 +264,8 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     .navbar h3{font-size: 1.5rem;}
     .settings-page aside{display: none !important;}
     .registration-container {width: 60%!important;}
+    .dash-search-menu{width: 95% !important;}
+
 }
 
 @media only screen and (max-width: 768px){
@@ -276,6 +284,7 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     .aside-filter{display: none !important;}
     .search-section1 img{display: block!important;}
     .registration-container {width: 70%!important;}
+    .dash-search-menu{width: 95% !important;}
 
 }
 @media only screen and (max-width:600px) {

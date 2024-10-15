@@ -1,4 +1,32 @@
 <main>
+    <div *ngIf="searchOpen" class="dash-search-container">
+        <div class="dash-search-menu">
+            <div class="w-full flex justify-end"><button (click)="searchOpen = !searchOpen" class="close-menu"><span></span></button></div>
+            <hr class="m-1">
+            <form (ngSubmit)="onSearch()" class="search-container">
+                <div class="select-container">
+                    <img src="media/images/travailleur-96.png" alt="" >
+                    <div class="select-objet">
+                        <label for="service">Type de service</label>
+                        <select name="" id="" title="Choisir le type de service">
+                        <option *ngFor="let service of services" [value]="service.value">{{ service.label }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="select-container select2">
+                    <img src="media/images/money-96.png" alt="" >
+                    <div class="select-objet">
+                        <label for="priceRange">Tranche de prix</label>
+                        <select name="" id="" title="Choisir la tranche de prix">
+                            <option *ngFor="let range of priceRanges" [value]="range.value">{{ range.label }}</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit"><img class="icon-search" src="media/images/icon-search.png" alt=""></button>
+            </form>
+        </div>
+    </div>
+    
     <div class="flex">
         <div class="flex-1 flex flex-col overflow-hidden">
 
@@ -51,11 +79,15 @@
                 </a>
 
                 <div class="flex items-center">
+                    <button (click)="searchOpen = !searchOpen" class="flex items-center text-gray-700 mr-4">
+                        <img loading="lazy" class="bell" src="media/images/search-icon.png" alt="">
+                    </button>
+
                     <button class="flex items-center text-gray-700 mr-4">
                         <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
                     </button>
-                    <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
 
+                    <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
                         <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile-delmas.png" alt="Photo de profil">
                     </button>
 
@@ -69,13 +101,17 @@
                         <a routerLink="/login" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">logout</mat-icon> Déconnexion</a>
                         <hr>
                     </div>
+
+
+
                 </div>
             </header>
 
             <section class="dash-section-1">
                 <app-dash-slider-card
                     [slides]="slidesToShow"
-                    [autoSlide]="true">
+                    [autoSlide]="true"
+                    [parentComponent]="this">
                 </app-dash-slider-card>
                 <div class="card right">
                     <img class="wallet" src="media/images/wallet.png" alt="">

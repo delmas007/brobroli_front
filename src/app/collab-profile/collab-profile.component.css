@@ -42,4 +42,16 @@ main{
     width: 20px;
     height: 20px;
 }
+.work-mode{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.work-mode span{
+    margin-right: 0.5rem;
+    padding: 0.1rem 0.6rem;
+    border-radius: 15px;
+    border: 1px solid #000;
+    font-size: 0.8rem;
 
+}

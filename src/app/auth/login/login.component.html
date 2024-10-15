@@ -10,9 +10,7 @@
         </div>
         <div>
             <h1>Bon retour parmi nous !</h1>
-            <p class="mb-6 text-center text-gray-500">
-                Entrez votre nom utilisateur et votre mot de passe pour continuer
-            </p>
+
             <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
 
             <form  class="login-form" [formGroup]="formLogin" (ngSubmit)="onLogin()">

@@ -20,6 +20,9 @@ export class ProjectsComponent implements OnInit {
   users: User[] = [];
   isProvider: boolean = false;
   menuOpen = false;
+  menuProjectOpen = false;
+  projects: any[] = [];
+  selectedProjectId: number | null = null;
 
   constructor() {}
 
@@ -29,6 +32,7 @@ export class ProjectsComponent implements OnInit {
     this.getBalance();
     this.getUsers();
     this.checkIfProvider();
+    this.getProjects();
   }
 
   getCurrentUser(): void {
@@ -75,5 +79,25 @@ export class ProjectsComponent implements OnInit {
     console.log('vous n\'avez pas validé la fin de la collaboration le prestataire a été notifié');
   }
 
-}
+  onShowMenu(id: number): void {
+    this.menuProjectOpen = !this.menuProjectOpen;
+    this.selectedProjectId = this.menuProjectOpen ? id : null;
+  }
 
+  onDownloadInvoice(id: number): void {
+    console.log(`Téléchargement de la facture pour le projet ${id}`);
+  }
+
+  onDeleteProject(id: number): void {
+    console.log(`Suppression du projet ${id}`);
+  }
+
+  getProjects(): void {
+    this.projects = [
+      { id: 1, freelancer: 'Delon', task: 'Conception site web', date: '15/05/2023', status: 'En cours' },
+      { id: 2, freelancer: 'Delmas', task: 'Maintenance serveur', date: '18/05/2023', status: 'Terminé' },
+      { id: 3, freelancer: 'Delmas', task: 'Développement application', date: '20/05/2023', status: 'Terminé' },
+      { id: 4, freelancer: 'Soum', task: 'Développement application', date: '20/05/2023', status: 'Terminé' }
+    ];
+  }
+}

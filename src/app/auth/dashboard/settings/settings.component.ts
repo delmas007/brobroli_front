@@ -42,7 +42,7 @@ export class SettingsComponent implements OnInit {
       'Abidjan', '0123456789', 'Bingerville', 'Développeur Fullstack',
       new Date(), new Date(),
       [new Balance(2, 'slug', 247000)],
-      [{ id: 2, slug: 'utilisateur2', username: 'delmas', password: 'delmas', role: [{id: 1, name: 'customer'}] }]
+      [{ id: 2, slug: 'utilisateur2', username: 'delmas', password: 'delmas', role: [{id: 1, name: 'provider'}] }]
     );
   }
 

@@ -14,35 +14,54 @@ import { User } from '../../domains/interfaces/user';
 })
 export class FinalRegistrationComponent implements OnInit {
   currentStep: number = 1;
-  totalSteps: number = 2;
+  totalSteps: number = 3;
   userRole: 'provider' | 'customer' = 'provider';
 
   questions: {
-    provider: Array<{ question: string, type: string, options?: string[] }>,
-    customer: Array<{ question: string, type: string, options?: string[] }>
+    provider: Array<{ question: string, type: string, options?: string[] }>[],
+    customer: Array<{ question: string, type: string, options?: string[] }>[]
   } = {
     provider: [
-      { question: 'Ville de résidence ?', type: 'text' },
-      { question: 'Quartier de résidence ?', type: 'text' },
-      { question: 'Code postal ?', type: 'text' },
-      { question: 'Parlez-nous de vous', type: 'textarea' },
-      { question: 'Quelle est votre profession ?', type: 'text' },
-      { question: 'Comment avez-vous entendu parler de nous ?', type: 'select', options: ['Internet', 'Ami', 'Publicité', 'Autre'] },
-      { question: 'Quels services proposez-vous ?', type: 'select', options: ['Développement mobile', 'Développement web', 'Design graphique', 'Formation', 'Marketing', 'Photographie'] },
+      [
+        { question: 'Votre Nom', type: 'text' },
+        { question: 'Votre Prénom', type: 'text' },
+        { question: 'Numéro de téléphone', type: 'text' },
+      ],
+      [
+        { question: 'Ville de résidence ?', type: 'text' },
+        { question: 'Quartier de résidence ?', type: 'text' },
+        { question: 'Code postal ?', type: 'text' },
+        { question: 'Parlez-nous de vous', type: 'textarea' },
+      ],
+      [
+        { question: 'Quelle est votre profession ?', type: 'text' },
+        { question: 'Comment avez-vous entendu parler de nous ?', type: 'select', options: ['Internet', 'Ami', 'Publicité', 'Autre'] },
+        { question: 'Quels services proposez-vous ?', type: 'select', options: ['Développement mobile', 'Développement web', 'Design graphique', 'Formation', 'Marketing', 'Photographie'] },
+      ]
     ],
     customer: [
-      { question: 'Ville de résidence ?', type: 'text' },
-      { question: 'Code postal ?', type: 'text' },
-      { question: 'Quelle est votre tranche d\'âge ?', type: 'select', options: ['18-25', '26-35', '36-50', '51+'] },
-      { question: 'Quels services recherchez-vous ?', type: 'checkbox', options: ['Service 1', 'Service 2', 'Service 3'] },
-      { question: 'Comment avez-vous entendu parler de nous ?', type: 'select', options: ['Internet', 'Ami', 'Publicité', 'Autre'] },
+      [
+        { question: 'Votre Nom', type: 'text' },
+        { question: 'Votre Prénom', type: 'text' },
+        { question: 'Numéro de téléphone', type: 'text' },
+      ],
+      [
+        { question: 'Ville de résidence ?', type: 'text' },
+        { question: 'Quartier de résidence ?', type: 'text' },
+        { question: 'Code postal ?', type: 'text' },
+      ],
+      [
+        { question: 'Quelle est votre tranche d\'âge ?', type: 'select', options: ['18-25', '26-35', '36-50', '51+'] },
+        { question: 'Quels services recherchez-vous ?', type: 'checkbox', options: ['Service 1', 'Service 2', 'Service 3'] },
+        { question: 'Comment avez-vous entendu parler de nous ?', type: 'select', options: ['Internet', 'Ami', 'Publicité', 'Autre'] },
+      ]
     ]
   };
 
   answers: any = {};
 
   ngOnInit() {
-    this.questions[this.userRole].forEach(q => {
+    this.questions[this.userRole][this.currentStep - 1].forEach(q => {
       if (q.type === 'checkbox' && q.options) {
         this.answers[q.question] = q.options.map(() => false);
       } else {

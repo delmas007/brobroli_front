@@ -16,16 +16,27 @@ export class SearchComponent {
   solde: number = 0;
   abuy: number = 85000;
   errorMessage: string = '';
+  btnErrorText: string = '';
+  connection: boolean = false  ;
   showPayButton: boolean = true;
 
   constructor(private router: Router) {}
 
   onCollabSubmit() {
+    if (!this.connection) {
+      this.errorMessage = "Vous devez être connecté pour effectuer cette action.";
+      this.btnErrorText = 'Se connecter';
+      this.showPayButton = false;
+      return;
+    }
+
     if (this.solde < this.abuy) {
       this.errorMessage = "Votre solde est insuffisant pour effectuer cette collaboration. Veuillez recharger votre compte.";
+      this.btnErrorText = 'Recharger mon compte';
       this.showPayButton = false;
-    } else {
-      this.router.navigate(['/profile']);
+      return;
     }
+
+    this.router.navigate(['/profile']);
   }
 }
