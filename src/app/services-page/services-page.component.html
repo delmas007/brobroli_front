@@ -4,35 +4,23 @@
         <div class="flex justify-center items-center mb-6">
             <span class="text-2xl text-center font-bold">Ajouter les services que vous offrez</span>
         </div>
-        <form (ngSubmit)="onServicesSubmit()">
+        <form  [formGroup]="servicesForm" (ngSubmit)="onServicesSubmit()">
             <div class="form-row">
                 <label for="serviceName">Type de service</label>
-                <select id="serviceName" name="serviceName" title="Type de service" required>
-                    <option value="web-development">Développement web</option>
-                    <option value="graphic-design">Développement mobile</option>
-                    <option value="content-writing">Design graphique</option>
-                    <option value="content-writing">Formation</option>
-                    <option value="content-writing">Marketing</option>
-                    <option value="content-writing">Photographie</option>
+                <select id="serviceName" name="serviceName" title="Type de service" required formControlName="typeService">
+                    <option value="DEVELOPPEMENT_WEB">Développement web</option>
+                    <option value="DEVELOPPEMENT_MOBILE">Développement mobile</option>
+                    <option value="DESIGN_GRAPHIQUE">Design graphique</option>
+                    <option value="FORMATION">Formation</option>
+                    <option value="MARKETING">Marketing</option>
+                    <option value="PHOTOGRAPHIE">Photographie</option>
                 </select>
                 <label for="serviceName">Description du service</label>
-                <textarea id="serviceName" name="serviceName" title="Description du service" required></textarea>
+                <textarea id="serviceName" name="serviceName" title="Description du service" required formControlName="description"></textarea>
                 <label for="serviceName">Prix du service</label>
-                <input type="number" id="serviceName" name="serviceName" required>
+                <input type="number" id="serviceName" name="serviceName" required formControlName="price">
                 <label for="serviceName">Durée de la mission</label>
-                <input type="number" id="serviceName" name="serviceName" required>
-                <label for="serviceName">Frequence de la mission</label>
-                <input type="number" id="serviceName" name="serviceName" required>
-                <!-- <span class="error-message" *ngIf="serviceName.errors?.required">Le nom du service est requis</span>
-                <span class="error-message" *ngIf="serviceName.errors?.minlength">Le nom du service doit contenir au moins 3 caractères</span>
-                <span class="error-message" *ngIf="serviceName.errors?.maxlength">Le nom du service doit contenir au plus 255 caractères</span>
-                <span class="error-message" *ngIf="serviceName.errors?.pattern">Le nom du service ne peut contenir que des lettres, des chiffres et des espaces</span>
-                <span class="error-message" *ngIf="serviceName.errors?.whitespace">Le nom du service ne peut contenir que des lettres, des chiffres et des espaces</span>
-                <span class="error-message" *ngIf="serviceName.errors?.specialChar">Le nom du service ne peut contenir que des lettres, des chiffres et des espaces</span>
-                <span class="error-message" *ngIf="serviceName.errors?.capitalLetter">Le nom du service doit contenir au moins une lettre majuscule</span>
-                <span class="error-message" *ngIf="serviceName.errors?.smallLetter">Le nom du service doit contenir au moins une lettre minuscule</span>
-                <span class="error-message" *ngIf="serviceName.errors?.number">Le nom du service doit contenir au moins un chiffre</span>
-                <span class="error-message" *ngIf="serviceName.errors?.specialChar">Le nom du service ne peut contenir que des lettres, des chiffres et des espaces</span> -->
+                <input type="number" id="serviceName" name="serviceName" required formControlName="duration">
             </div>
             <button class="btn-link" type="submit">Ajouter</button>
         </form>

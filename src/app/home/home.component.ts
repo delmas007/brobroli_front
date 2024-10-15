@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import * as AOS from 'aos';
+import {BrobroliService} from "../core/services/brobroli.service";
+import {StateService} from "../core/services/state.service";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent, RouterOutlet, RouterLink, RouterLinkActive, FormsModule, CommonModule],
+  imports: [NavbarComponent, RouterOutlet, RouterLink, RouterLinkActive, FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit  {
-  searchCriteria = {
-    service: '',
-    priceRange: ''
-  };
+  searchForm!: FormGroup;
+  constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService,private state:StateService) {
+  }
 
   services = [
     { value: 'DEVELOPPEMENT_MOBILE', label: 'Développement mobile' },
@@ -28,17 +29,22 @@ export class HomeComponent implements OnInit  {
   ];
 
   priceRanges = [
-    { value: '25k-100k', label: '25k-100k' },
-    { value: '100k-300k', label: '100k-300k' },
-    { value: '300k-600k', label: '300k-600k' },
-    { value: '600k-1M', label: '600k-1M' }
+    { value: '25000-100000', label: '25k-100k' },
+    { value: '100000-300000', label: '100k-300k' },
+    { value: '300000-600000', label: '300k-600k' },
+    { value: '600000-1000000', label: '600k-1M' }
   ];
-  ngOnInit(): void {AOS.init();}
-
-
-  constructor(private router: Router) {}
+  ngOnInit(): void {
+    AOS.init();
+    this.searchForm = this.fb.group({
+      typeService: this.fb.control("", [Validators.required]),
+      tranche: this.fb.control("", [Validators.required])
+    });
+  }
 
   onSearch() {
-    this.router.navigate(['/search'], { queryParams: this.searchCriteria });
+    const typeService = this.searchForm.value.typeService;
+    const [minPrice, maxPrice] = this.searchForm.value.tranche.split('-');
+    this.router.navigateByUrl(`/search/${typeService}/${minPrice}/${maxPrice}`);
   }
 }

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormBuilder, FormsModule} from '@angular/forms';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
-import { RouterLink, Router } from '@angular/router';
+import {RouterLink, Router, ActivatedRoute} from '@angular/router';
+import {BrobroliService} from "../core/services/brobroli.service";
+import {StateService} from "../core/services/state.service";
 @Component({
   selector: 'app-search',
   standalone: true,
@@ -11,14 +13,17 @@ import { RouterLink, Router } from '@angular/router';
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   modalCollabOpen = false;
   solde: number = 0;
   abuy: number = 85000;
   errorMessage: string = '';
   showPayButton: boolean = true;
+  typeService!: string ;
+  minPrice!: number ;
+  maxPrice!: number ;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService,private state:StateService,private activatedRoute: ActivatedRoute) {}
 
   onCollabSubmit() {
     if (this.solde < this.abuy) {
@@ -27,5 +32,21 @@ export class SearchComponent {
     } else {
       this.router.navigate(['/profile']);
     }
+  }
+
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.typeService = params['typeService'];
+      this.minPrice = params['minPrice'];
+      this.maxPrice = params['maxPrice'];
+    });
+    this.service.search(this.typeService, this.minPrice, this.maxPrice).subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
   }
 }
