@@ -12,11 +12,14 @@ import { FinalRegistrationComponent } from './auth/final-registration/final-regi
 import { CollabProfileComponent } from './collab-profile/collab-profile.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { UsageConditionComponent } from './usage-condition/usage-condition.component'; 
+import { ServicesPageComponent } from './services-page/services-page.component';
+
 export const routes: Routes = [
 
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'services', component: ServicesComponent },
+    { path: 'add-service', component: ServicesPageComponent },
     { path: 'dashboard-client', component: ClientDashboardComponent},
     { path: 'dashboard-prestataire', component: PrestataireDashboardComponent},
     { path: 'register', component: RegisterComponent },

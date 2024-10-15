@@ -5,21 +5,18 @@
             <div class="w-full flex justify-end"><button (click)="modalCollabOpen = !modalCollabOpen" class="close-menu"><span></span></button></div>
             <hr class="my-2">
             <h4 class="text-center py-1">Collaboration</h4>
-            <form (ngSubmit)="onCollabSubmit()" class="flex flex-col gap-2 justify-between">
+            <div class="flex flex-col gap-2 justify-between">
                 <p>Vous êtes sur le point de commencer une collaboration
                 . Le montant de la collaboration est de <span class="font-bold">85 000 FCFA</span>.
                 </p>
                 <p>Votre paiement sera sur un compte bloqué et sera délivré au prestataire lorsque vous aurez validé la fin de la collaboration.</p>
                 <p>Vous avez la possibilité d'annuler cette collaboration et vous faire rembourser tant que le prestataire n'a pas encore accepté votre demande.</p>
-                <label for="payment-method">Méthode de paiement</label>
-                <select name="" id="" title="Choisir une méthode de paiement">
-                    <option value="mobile-money">Orange Money</option>
-                    <option value="wave">Wave</option>
-                    <option value="momo">MoMo</option>
-                    <option value="bank-transfer">Moov money</option>
-                </select>
-                <button type="submit" class="btn-link w-full flex justify-center">Payer</button>
-            </form>
+                <div *ngIf="errorMessage" class="transition-all duration-300">
+                    <p class="error-message">{{errorMessage}}</p>
+                    <a routerLink="/dashboard-client" class="btn-link w-full flex justify-center transition-all duration-300">Recharger mon compte</a>
+                </div>
+                <button *ngIf="showPayButton" (click)="onCollabSubmit()" class="btn-link w-full">Payer</button>
+            </div>
         </div>
     </div>
 

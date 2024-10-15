@@ -6,6 +6,7 @@
             <div class="settings-aside">
                 <div class="">
                     <a [routerLink]="[]" fragment="profile"><mat-icon>person</mat-icon>Mon profil</a>
+                    <a *ngIf="isProvider" [routerLink]="[]" fragment="services"><mat-icon>person</mat-icon>Mes services</a>
                     <a [routerLink]="[]" fragment="portefeuille"><mat-icon>account_balance_wallet</mat-icon>Mon Portefeuille</a>
                     <a [routerLink]="[]" fragment="notifications"><mat-icon>notifications</mat-icon>Notifications</a>
                     <a [routerLink]="[]" fragment="securite"><mat-icon>security</mat-icon>Sécurité</a>
@@ -121,6 +122,111 @@
 
                 </div>
             </div>
+        </section>
+        <section class="min-h-screen" id="services">
+            <h2>Mes services</h2>
+            <p class="text-gray-600 font-medium">Consultez et gérez vos services.</p>
+            <main class="bg-white box-shadow1 rounded-2xl p-6 mb-6">
+                <div class="mb-6">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center relative">
+                        <div class="w-full">
+                            <h3 class="text-lg font-medium text-gray-800 mb-4">Mes services</h3>
+                            <div class="card-container">
+                                <div class="card-profile">
+                                    <div class="card-top">
+                                        <div class="flex justify-between items-center">
+                                            <div class="stars-container">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-empty.png" alt="">
+                                            </div>
+                                            <div class="saved"><mat-icon>bookmark</mat-icon></div>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <h4 class="text-titre">Senior UI/UX Designer </h4>
+                                            <mat-icon>monitor</mat-icon>
+                                        </div>
+                                        <div class="work-mode">
+                                            <span>Remote</span>
+                                            <span>Full Time</span>
+                                            <span>Design</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-bottom">
+                                        <div>
+                                            <p class="price">85K</p>
+                                            <p class="location">Cocody</p>
+                                        </div>
+                                        <a   class="btn-link">Modifier</a>
+                                    </div>
+                                </div>
+                                <div class="card-profile">
+                                    <div class="card-top c2">
+                                        <div class="flex justify-between items-center">
+                                            <div class="stars-container">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-empty.png" alt="">
+                                            </div>
+                                            <div class="saved"><mat-icon>bookmark</mat-icon></div>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <h4 class="text-titre">Senior UI/UX Designer </h4>
+                                            <mat-icon>monitor</mat-icon>
+                                        </div>
+                                        <div class="work-mode">
+                                            <span>Remote</span>
+                                            <span>Full Time</span>
+                                            <span>Design</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-bottom">
+                                        <div>
+                                            <p class="price">85K</p>
+                                            <p class="location">Cocody</p>
+                                        </div>
+                                        <a   class="btn-link">Modifier</a>
+                                    </div>
+                                </div>
+                                <div class="card-profile">
+                                    <div class="card-top c3">
+                                        <div class="flex justify-between items-center">
+                                            <div class="stars-container">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-fill.png" alt="">
+                                                <img class="star"  loading="lazy" src="media/images/star-empty.png" alt="">
+                                            </div>
+                                            <div class="saved"><mat-icon>bookmark</mat-icon></div>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <h4 class="text-titre">Senior UI/UX Designer </h4>
+                                            <mat-icon>monitor</mat-icon>
+                                        </div>
+                                        <div class="work-mode">
+                                            <span>Remote</span>
+                                            <span>Full Time</span>
+                                            <span>Design</span>
+                                        </div>
+                                    </div>
+                                    <div class="card-bottom">
+                                        <div>
+                                            <p class="price">85K</p>
+                                            <p class="location">Cocody</p>
+                                        </div>
+                                        <a    class="btn-link">Modifier</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
         </section>
         <section class="min-h-screen" id="portefeuille">
             <h2>Mon portefeuille</h2>
