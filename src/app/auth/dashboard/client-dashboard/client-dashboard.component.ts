@@ -95,7 +95,7 @@ export class ClientDashboardComponent implements OnInit {
     this.slides = [
       {imageSrc: 'media/images/fiche.png', imageAlt: 'Freelancer', title: 'Inscription incomplète', text: 'Veuillez terminer votre inscription pour débuter une collaboration.', url: '/final-registration', btnText: 'Finaliser'},
       {imageSrc: 'media/images/freelancer.png', imageAlt: 'Freelancer', title: `Bonjour, ${this.currentUser?.firstName || ''}`, text: 'Recherchez des freelancers pour une nouvelle collaboration.', action: 'searchOpen = true', btnText: 'Rechercher'},
-      {imageSrc: 'media/images/freelancer-f.png', imageAlt: 'Freelancer', title: 'Mes projets', text: 'Obtenez une vue d\'ensemble complète de vos projets en cours et achevés.', url: '/projects', btnText: 'Voir les projets'}
+      {imageSrc: 'media/images/freelancer-f.png', imageAlt: 'Freelancer', title: 'Mes projets', text: 'Obtenez une vue d\'ensemble complète de vos projets en cours et achevés.', url: '/projects-customer', btnText: 'Voir les projets'}
     ];
   }
 
