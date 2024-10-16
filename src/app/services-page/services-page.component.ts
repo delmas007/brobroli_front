@@ -43,7 +43,6 @@ export class ServicesPageComponent implements OnInit {
     this.service.saveService(this.donnee,this.state.authState.id).subscribe(
       data => {
         console.log(data);
-        console.log("Service saved");
         this.servicesForm.reset();
       },
       error => {

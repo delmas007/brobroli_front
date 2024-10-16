@@ -29,7 +29,7 @@ export const routes: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'terms-and-conditions', component: UsageConditionComponent },
     { path: 'add-competence', component: SkillsAddComponent },
-    
+
     { path: '**', component: PageNotFoundComponent }
 
 ];
