@@ -43,4 +43,8 @@ export class BrobroliService {
   saveSkill(id:number,skill:Skills): Observable<any> {
     return this.http.post<any>(`${this.host}/providers/skill/${id}`, skill);
   }
+  getCollaborationProvider(id:number): Observable<any> {
+    return this.http.get<any>(`${this.host}/providers/collaboration/provider/${id}`);
+  }
+
 }

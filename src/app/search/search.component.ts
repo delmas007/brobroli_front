@@ -16,6 +16,7 @@ import {Services} from "../domains/interfaces/Services";
 })
 export class SearchComponent implements OnInit {
   modalCollabOpen = false;
+  serbiceId: number = 0;
   solde: number = 0;
   abuy: number = 85000;
   errorMessage: string = '';
@@ -86,6 +87,9 @@ export class SearchComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+  formatPrice(price: number): string {
+    return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'XOF' }).format(price);
   }
 }
 
