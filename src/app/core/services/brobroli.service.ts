@@ -5,6 +5,7 @@ import {Inscription} from "../../domains/interfaces/Inscription";
 import {Login} from "../../domains/interfaces/Login";
 import {Balance} from "../../domains/interfaces/balance";
 import {Service} from "../../domains/interfaces/Service";
+import {Skills} from "../../domains/interfaces/Skills";
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +40,7 @@ export class BrobroliService {
   search(typeService:string,minPrice:number,maxPrice:number): Observable<any>{
     return this.http.get<any>(`${this.host}/services/${typeService}/${minPrice}/${maxPrice}`);
   }
-
-
+  saveSkill(id:number,skill:Skills): Observable<any> {
+    return this.http.post<any>(`${this.host}/providers/skill/${id}`, skill);
+  }
 }
