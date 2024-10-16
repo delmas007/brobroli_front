@@ -187,9 +187,7 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #e0e0e0;
 }
-td.badge{
-    
-}
+
 th {
     background-color: #f8f8f8;
     font-weight: bold;
@@ -209,6 +207,8 @@ td p.done{
     color: #fff;
     border-radius: 15px;
     background-color: #14c087;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 }
 td p.pending{
     margin-bottom: 0;

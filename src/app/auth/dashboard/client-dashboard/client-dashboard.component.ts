@@ -6,13 +6,13 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { Person } from '../../../domains/interfaces/person';
 import { User } from '../../../domains/interfaces/user';
-import { Balance } from '../../../domains/interfaces/balance';
+import { TableModule } from 'primeng/table';
 import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-client-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule, FormsModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule, FormsModule, TableModule],
   templateUrl: './client-dashboard.component.html',
   styleUrls: ['./client-dashboard.component.css']
 })
@@ -49,6 +49,11 @@ export class ClientDashboardComponent implements OnInit {
     { value: '300k-600k', label: '300k-600k' },
     { value: '600k-1M', label: '600k-1M' }
   ];
+  projects = [
+    {freelancer: 'Delon', task: 'Conception site web', date: '15/05/2023', status: 'En cours'},
+    {freelancer: 'Delmas', task: 'Maintenance serveur', date: '18/05/2023', status: 'Terminé'},
+    {freelancer: 'Delmas', task: 'Maintenance serveur', date: '18/05/2023', status: 'Terminé'},
+  ];
 
   constructor(router: Router) {
     this.router = router;
@@ -59,6 +64,8 @@ export class ClientDashboardComponent implements OnInit {
     this.getBalance();
     this.getUsers();
     this.initializeSlides();
+
+  
   }
 
   getCurrentUser(): void {
