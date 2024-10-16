@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import {RouterLink, Router, ActivatedRoute} from '@angular/router';
 import {BrobroliService} from "../core/services/brobroli.service";
 import {StateService} from "../core/services/state.service";
+import {Services} from "../domains/interfaces/Services";
 @Component({
   selector: 'app-search',
   standalone: true,
@@ -15,6 +16,7 @@ import {StateService} from "../core/services/state.service";
 })
 export class SearchComponent implements OnInit {
   modalCollabOpen = false;
+  serbiceId: number = 0;
   solde: number = 0;
   abuy: number = 85000;
   errorMessage: string = '';
@@ -24,7 +26,18 @@ export class SearchComponent implements OnInit {
   typeService!: string ;
   minPrice!: number ;
   maxPrice!: number ;
-
+  services :Services[] = [];
+  servicee: Services = {
+    id: 0,
+    description: "",
+    duration: 0,
+    price: 0,
+    provider: {
+      id: 0,
+      skills: []
+    },
+    typeService: ""
+  }
   constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService,private state:StateService,private activatedRoute: ActivatedRoute) {}
 
   onCollabSubmit() {
@@ -53,11 +66,30 @@ export class SearchComponent implements OnInit {
     });
     this.service.search(this.typeService, this.minPrice, this.maxPrice).subscribe(
       (response: any) => {
-        console.log(response);
+        for (let i = 0; i < response.length; i++) {
+          const providerSkills = response[i].provider.skills.map((skill: { skillName: string }) => skill.skillName);
+          this.servicee = {
+            id: response[i].id,
+            description: response[i].description,
+            duration: response[i].duration,
+            price: response[i].price,
+            provider: {
+              id: response[i].provider.id,
+              skills: providerSkills
+            },
+            typeService: response[i].typeService
+          };
+          this.services.push(this.servicee);
+        }
+        console.log(this.services);
       },
       (error: any) => {
         console.log(error);
       }
     )
   }
+  formatPrice(price: number): string {
+    return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'XOF' }).format(price);
+  }
 }
+

@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import {RouterOutlet, RouterLink, RouterLinkActive, Router} from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { Person } from '../domains/interfaces/person';
 import { User } from '../domains/interfaces/user';
 import { Balance } from '../domains/interfaces/balance';
+import {FormBuilder} from "@angular/forms";
+import {BrobroliService} from "../core/services/brobroli.service";
+import {StateService} from "../core/services/state.service";
 
 @Component({
   selector: 'app-projects',
@@ -24,10 +27,11 @@ export class ProjectsComponent implements OnInit {
   projects: any[] = [];
   selectedProjectId: number | null = null;
 
-  constructor() {}
+  constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService,private state:StateService) {}
 
 
   ngOnInit() {
+    this.getCollaborationProvider();
     this.getCurrentUser();
     this.getBalance();
     this.getUsers();
@@ -35,6 +39,16 @@ export class ProjectsComponent implements OnInit {
     this.getProjects();
   }
 
+  getCollaborationProvider(): void {
+    this.service.getCollaborationProvider(this.state.authState.id).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
   getCurrentUser(): void {
     this.currentUser = new Person(
       1, 'utilisateur2', 'Delmas', 'Angaman', 'media/images/profile-delmas.png', 'delmas@gmail.com',
