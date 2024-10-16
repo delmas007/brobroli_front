@@ -10,7 +10,7 @@ import { SearchComponent } from './search/search.component';
 import { FinalRegistrationComponent } from './auth/final-registration/final-registration.component';
 import { CollabProfileComponent } from './collab-profile/collab-profile.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { UsageConditionComponent } from './usage-condition/usage-condition.component'; 
+import { UsageConditionComponent } from './usage-condition/usage-condition.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import {SkillsAddComponent} from './auth/dashboard/prestataire-dashboard/skills-add/skills-add.component';
 import {ChatbotComponent} from './chatbot/chatbot.component';
@@ -24,7 +24,7 @@ export const routes: Routes = [
     { path: 'dashboard-prestataire', component: PrestataireDashboardComponent},
     { path: 'register', component: RegisterComponent },
     { path: 'settings', component: SettingsComponent },
-    { path: 'search', component: SearchComponent },
+    { path: 'search/:typeService/:minPrice/:maxPrice', component: SearchComponent },
     { path: 'final-registration', component: FinalRegistrationComponent },
     { path: 'profile', component: CollabProfileComponent },
     { path: 'projects', component: ProjectsComponent },
