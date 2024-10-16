@@ -9,16 +9,17 @@ import { User } from '../../../domains/interfaces/user';
 import { Balance } from '../../../domains/interfaces/balance';
 import {BrobroliService} from "../../../core/services/brobroli.service";
 import {StateService} from "../../../core/services/state.service";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-prestataire-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule, ReactiveFormsModule],
   templateUrl: './prestataire-dashboard.component.html',
   styleUrl: './prestataire-dashboard.component.css'
 })
 export class PrestataireDashboardComponent implements OnInit {
-  constructor(private service: BrobroliService,private state: StateService) {
+  constructor(private service: BrobroliService, private state: StateService,private fb:FormBuilder) {
   }
   menuOpen = false;
   modalWithdrawOpen = false;
@@ -27,6 +28,7 @@ export class PrestataireDashboardComponent implements OnInit {
   currentUser: Person | null = null;
   users: User[] = [];
   slides: any[] = [];
+  sumForm!: FormGroup;
 
   ngOnInit(): void {
     this.getProlfil();
@@ -34,12 +36,26 @@ export class PrestataireDashboardComponent implements OnInit {
     this.getBalance();
     this.getUsers();
     this.initializeSlides();
+    this.sumForm = this.fb.group({
+      sum: this.fb.control('', [Validators.required])
+    });
   }
   getProlfil(): void {
     this.service.getProvider(this.state.authState.id).subscribe(
       data => {
         console.log(data);
         this.balance= data.balance.sum
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+  retrait(): void {
+    this.service.retrait(this.sumForm.value.sum,this.state.authState.id).subscribe(
+      data => {
+        console.log(data);
+        this.getProlfil();
       },
       error => {
         console.log(error);

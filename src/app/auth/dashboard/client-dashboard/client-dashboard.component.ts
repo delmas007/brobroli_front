@@ -7,27 +7,34 @@ import { MatIconModule } from '@angular/material/icon';
 import { Person } from '../../../domains/interfaces/person';
 import { User } from '../../../domains/interfaces/user';
 import { TableModule } from 'primeng/table';
-import {FormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {BrobroliService} from "../../../core/services/brobroli.service";
+import {StateService} from "../../../core/services/state.service";
+import {BalanceSum} from "../../../domains/interfaces/balanceSum";
 
 @Component({
   selector: 'app-client-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule, FormsModule, TableModule],
+  imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, DashSliderCardComponent, MatSlideToggleModule, MatIconModule, FormsModule, TableModule, ReactiveFormsModule],
   templateUrl: './client-dashboard.component.html',
   styleUrls: ['./client-dashboard.component.css']
 })
 
 export class ClientDashboardComponent implements OnInit {
+  balance:number = 0;
   title = 'client-dashboard';
   menuOpen = false;
   modalPayOpen = false;
   modalWithdrawOpen = false;
   searchOpen = false;
-  balance: number = 0;
   currentUser: Person | null = null;
   users: User[] = [];
   slides: any[] = [];
   private router: Router;
+  rechargeForm!: FormGroup;
+  somme:BalanceSum = {
+    sum: 0
+  }
 
   searchCriteria = {
     service: '',
@@ -55,21 +62,43 @@ export class ClientDashboardComponent implements OnInit {
     {freelancer: 'Delmas', task: 'Maintenance serveur', date: '18/05/2023', status: 'Terminé'},
   ];
 
-  constructor(router: Router) {
+  constructor(router: Router, private service: BrobroliService, private state: StateService,private fb:FormBuilder) {
     this.router = router;
   }
 
   ngOnInit(): void {
-    this.getCurrentUser();
+    this.getProlfil();
     this.getBalance();
     this.getUsers();
     this.initializeSlides();
+    this.rechargeForm = this.fb.group({
+      sum: this.fb.control("", [Validators.required])
+    });
 
-  
   }
 
-  getCurrentUser(): void {
-
+  getProlfil(): void {
+    this.service.getCustomer(this.state.authState.id).subscribe(
+      data => {
+        console.log(data);
+        this.balance= data.balance.sum
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+  rechargeBalance(){
+    this.somme.sum = this.rechargeForm.value.sum;
+    this.service.rechargeCustomer(this.somme,this.state.authState.id).subscribe(
+      data => {
+        console.log(data);
+        this.getProlfil();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   getBalance(): void {
