@@ -13,6 +13,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { UsageConditionComponent } from './usage-condition/usage-condition.component';
 import { ServicesPageComponent } from './services-page/services-page.component';
 import {SkillsAddComponent} from './auth/dashboard/prestataire-dashboard/skills-add/skills-add.component';
+import {ChatbotComponent} from './chatbot/chatbot.component';
 
 export const routes: Routes = [
 
@@ -29,7 +30,7 @@ export const routes: Routes = [
     { path: 'projects', component: ProjectsComponent },
     { path: 'terms-and-conditions', component: UsageConditionComponent },
     { path: 'add-competence', component: SkillsAddComponent },
-
+    { path: 'chatbot', component: ChatbotComponent },
     
     { path: '**', component: PageNotFoundComponent }
 
