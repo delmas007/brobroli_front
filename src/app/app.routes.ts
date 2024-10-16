@@ -31,7 +31,7 @@ export const routes: Routes = [
     { path: 'terms-and-conditions', component: UsageConditionComponent },
     { path: 'add-competence', component: SkillsAddComponent },
     { path: 'chatbot', component: ChatbotComponent },
-    
+
     { path: '**', component: PageNotFoundComponent }
 
 ];
