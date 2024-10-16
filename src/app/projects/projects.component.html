@@ -82,8 +82,8 @@
                         <div *ngIf="menuProjectOpen && selectedProjectId === project.id" class="overlay-menu">
                             <div class="w-full flex justify-end"><button (click)="menuProjectOpen = !menuProjectOpen" class="close-menu"><span></span></button></div>
                             <a (click)="onDownloadInvoice(project.id)" class="flex my-2 items-center gap-2">
-                                <mat-icon>download</mat-icon>
-                                Télécharger la facture
+                                <mat-icon>stars</mat-icon>
+                                Noter le projet
                             </a>
                             <hr>
                             <a (click)="onDeleteProject(project.id)" class="flex my-2 items-center gap-2">
