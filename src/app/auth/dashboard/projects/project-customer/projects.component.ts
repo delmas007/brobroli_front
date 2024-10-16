@@ -3,21 +3,21 @@ import { CommonModule } from '@angular/common';
 import {RouterOutlet, RouterLink, RouterLinkActive, Router} from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
-import { Person } from '../domains/interfaces/person';
-import { User } from '../domains/interfaces/user';
-import { Balance } from '../domains/interfaces/balance';
+import { Person } from '../../../../domains/interfaces/person';
+import { User } from '../../../../domains/interfaces/user';
+import { Balance } from '../../../../domains/interfaces/balance';
 import {FormBuilder} from "@angular/forms";
-import {BrobroliService} from "../core/services/brobroli.service";
-import {StateService} from "../core/services/state.service";
+import {BrobroliService} from "../../../../core/services/brobroli.service";
+import {StateService} from "../../../../core/services/state.service";
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-projects-customer',
   standalone: true,
   imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, MatSlideToggleModule, MatIconModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsCustomerComponent implements OnInit {
   balance: number = 0;
   currentUser: Person | null = null;
   users: User[] = [];
