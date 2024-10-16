@@ -1,0 +1,101 @@
+<main>
+    
+
+    <header class="bg-white  flex items-center justify-between p-4">
+        <a routerLink="/" class="flex items-center">
+            <img class="logo" src="media/images/Logo.png" alt="">
+        </a>
+        
+        <div class="flex items-center">
+            <button class="flex items-center text-gray-700 mr-4">
+                <img loading="lazy" class="bell" src="media/images/notif.png" alt="">
+            </button>
+            <button (click)="menuOpen = !menuOpen" class="flex items-center text-gray-700">
+                <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+            </button>
+
+
+            <div *ngIf="menuOpen" class="dash-profile-menu bg-white rounded-md shadow-lg py-1">
+                <div class="w-full flex justify-end"><button (click)="menuOpen = !menuOpen" class="close-menu"><span></span></button></div>
+                <h4 class="text-center py-1">Menu</h4>
+                <hr>
+                <a routerLink="/settings" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">settings</mat-icon> Paramètres</a>
+                <hr>
+                <a routerLink="/login" class="flex items-center px-4 py-2 text-base  hover:bg-gray-100"><mat-icon class="w-5 h-5 mr-2 text-[#14C0B7]">logout</mat-icon> Déconnexion</a>
+                <hr>
+            </div>
+        </div>
+    </header>
+    <section>
+        <div *ngIf="isProvider">
+            <span  class="text-xl font-bold ">En attente de collaboration</span>
+            <div class="bg-white rounded-2xl shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-2">
+                <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+                <span class="text-md font-semibold text-center md:text-left">{{currentUser?.firstName}} {{currentUser?.lastName}}</span>
+                <span class="text-md font-semibold text-center md:text-left">Design d'une application web</span>
+                <span class="text-md font-semibold text-center md:text-left">il y a 2 heures</span>
+                <div class="flex gap-2">
+                    <button (click)="onRefuse()" class="btn-link false"><mat-icon>close</mat-icon></button>
+                    <button (click)="onAccept()" class="btn-link true"><mat-icon>check</mat-icon></button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!isProvider">
+            <span class="text-xl font-bold ">En attente de validation</span>
+            <div class="bg-white rounded-2xl shadow-lg p-4 flex flex-col md:flex-row items-center justify-between gap-4 mb-2">
+                <img loading="lazy" class="h-12 w-12 rounded-full object-cover" src="media/images/profile.png" alt="Photo de profil">
+                <span class="text-md font-semibold text-center md:text-left">Design d'une application web</span>
+                <span class="text-md font-semibold text-center md:text-left">il y a 2 jours</span>
+                <span class="label-done">Terminé</span>
+                <div class="flex gap-2">
+                    <button (click)="onDoneCollab()" class="btn-link false"><mat-icon>close</mat-icon></button>
+                    <button (click)="onUnDoneCollab()" class="btn-link true"><mat-icon>check</mat-icon></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="dash-section-3">
+        <span class="text-2xl font-bold">Mes projets</span>
+        <table>
+            <thead>
+                <tr>
+                    <th>Freelancer</th>
+                    <th>Tâche</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects">
+                    <td>{{ project.freelancer }}</td>
+                    <td>{{ project.task }}</td>
+                    <td>{{ project.date }}</td>
+                    <td><p [ngClass]="{'pending': project.status === 'En cours', 'done': project.status === 'Terminé'}">{{ project.status }}</p></td>
+                    <td *ngIf="project.status === 'Terminé'" class="flex justify-center relative">
+                        <a class="cursor-pointer" (click)="onShowMenu(project.id)">
+                            <mat-icon>more_vert</mat-icon>
+                        </a>
+
+                        <div *ngIf="menuProjectOpen && selectedProjectId === project.id" class="overlay-menu">
+                            <div class="w-full flex justify-end"><button (click)="menuProjectOpen = !menuProjectOpen" class="close-menu"><span></span></button></div>
+                            <a (click)="onDownloadInvoice(project.id)" class="flex my-2 items-center gap-2">
+                                <mat-icon>stars</mat-icon>
+                                Noter le projet
+                            </a>
+                            <hr>
+                            <a (click)="onDeleteProject(project.id)" class="flex my-2 items-center gap-2">
+                                <mat-icon>delete</mat-icon>
+                                Supprimer le projet
+                            </a>
+                            <hr>
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
