@@ -44,7 +44,7 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     border:1px solid #777777;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     object-fit: cover;
-    
+
 }
 .hero-right{
 
@@ -102,13 +102,13 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     padding: 1rem;
-    height: 20rem; 
+    height: 20rem;
     width: 230px;
     overflow: hidden;
 }
 
 .section-1 .card-grid .card-title {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
 }
@@ -136,7 +136,7 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
 }
 
 .section-1 .card-grid .card-text {
-    color: #4a5568; 
+    color: #4a5568;
 }
 .card.card-1{
     background-image: url('/media/images/service1.jpg');
@@ -184,10 +184,7 @@ h5,h6,h7{font-weight:400}h5{font-size:1.5rem;line-height:1.5}h6{font-size:1.25re
     display: flex;
     animation: wipe-in-up 0.5s ease forwards;
 }
-.dash-section-3{
-    overflow-x: scroll;
-    overflow-y:visible;
-}
+
 table{
     overflow-y:visible!important;
 }
@@ -199,7 +196,7 @@ table{
     height: 100dvh;
     width: 100dvw;
     background-color: #00000080;
-} 
+}
 
 @keyframes wipe-in-up {
     from {
@@ -293,6 +290,7 @@ table{
     .stars-container .star{height: 15px !important;}
     .dash-section-1 .card.right .flex.gap-2{flex-wrap: wrap !important;}
     .dash-section-2 .card .card-image,.dash-section-responsive .card .card-image{display: none !important;}
+    .dash-section-3{overflow-x: scroll;overflow-y:visible;}
 }
 
 @media only screen and (max-width: 530px) {
@@ -316,7 +314,7 @@ table{
     .dash-section-1-card-left-text{font-size: 16px!important; margin-bottom: 0 !important; text-align: center;}
     .font-semibold {font-weight: 600;font-size: 14px;}
     .dash-section-1 .btn-link{font-size: 14px;padding: 0.2rem 0.6rem !important;}
-    
+
 
 }
 
