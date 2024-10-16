@@ -46,5 +46,8 @@ export class BrobroliService {
   getCollaborationProvider(id:number): Observable<any> {
     return this.http.get<any>(`${this.host}/providers/collaboration/provider/${id}`);
   }
+  collaborer(serviceId:number,id_customer:number,): Observable<any> {
+    return this.http.post<any>(`${this.host}/customers  /collaboration/${serviceId}/${id_customer}`,{});
+  }
 
 }

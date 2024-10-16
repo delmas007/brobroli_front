@@ -16,9 +16,9 @@ import {Services} from "../domains/interfaces/Services";
 })
 export class SearchComponent implements OnInit {
   modalCollabOpen = false;
-  serbiceId: number = 0;
+  serviceId: number = 0;
   solde: number = 0;
-  abuy: number = 85000;
+  abuy: number = 0;
   errorMessage: string = '';
   btnErrorText: string = '';
   connection: boolean = false  ;
@@ -39,7 +39,11 @@ export class SearchComponent implements OnInit {
     typeService: ""
   }
   constructor(private router: Router,private fb:FormBuilder,private service: BrobroliService,private state:StateService,private activatedRoute: ActivatedRoute) {}
-
+  openCollabModal(id: number, price: number) {
+    this.serviceId = id;
+    this.abuy = price;
+    this.modalCollabOpen = true;
+  }
   onCollabSubmit() {
     if (!this.connection) {
       this.errorMessage = "Vous devez être connecté pour effectuer cette action.";
