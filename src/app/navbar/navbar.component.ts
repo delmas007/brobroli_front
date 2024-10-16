@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule,  } from '@angular/common';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import {RouterOutlet, RouterLink, RouterLinkActive, Router} from '@angular/router';
+import {StateService} from "../core/services/state.service";
 
 
 @Component({
@@ -10,9 +11,26 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isScrolled = false;
   isMenuOpen = false;
+  isAuth = false;
+  statee : any = {
+    id : undefined,
+    isAuthenticated : false,
+    username : undefined,
+    role : undefined,
+    token: undefined,
+  }
+
+  constructor(private state :StateService,private router: Router) {
+  }
+  deconnexion() {
+    this.state.setAuthState(this.statee);
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+
+  }
 
   toggleMenu() {
     const modal = document.querySelector('.menu-modal') as HTMLElement;
@@ -27,14 +45,17 @@ export class NavbarComponent {
     }
     this.isMenuOpen = !this.isMenuOpen;
   }
-  constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.state.authState.isAuthenticated) {
+      this.isAuth = true;
+    }
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     const scrollY = window.scrollY || document.documentElement.scrollTop;
-    
+
     if (scrollY > 50) {
       this.isScrolled = true;
     } else {
