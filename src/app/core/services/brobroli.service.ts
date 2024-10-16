@@ -6,6 +6,7 @@ import {Login} from "../../domains/interfaces/Login";
 import {Balance} from "../../domains/interfaces/balance";
 import {Service} from "../../domains/interfaces/Service";
 import {Skills} from "../../domains/interfaces/Skills";
+import {BalanceSum} from "../../domains/interfaces/balanceSum";
 @Injectable({
   providedIn: 'root'
 })
@@ -28,6 +29,9 @@ export class BrobroliService {
   getProvider(id:number): Observable<any> {
     return this.http.get<any>(`${this.host}/providers/id/${id}`);
   }
+  getCustomer(id:number): Observable<any> {
+    return this.http.get<any>(`${this.host}/customers/id/${id}`);
+  }
   recharge(balance:Balance,id:number):Observable<any>{
     return this.http.post(`${this.host}/customers/${id}`,balance)
   }
@@ -47,7 +51,9 @@ export class BrobroliService {
     return this.http.get<any>(`${this.host}/providers/collaboration/provider/${id}`);
   }
   collaborer(serviceId:number,id_customer:number,): Observable<any> {
-    return this.http.post<any>(`${this.host}/customers  /collaboration/${serviceId}/${id_customer}`,{});
+    return this.http.post<any>(`${this.host}/customers/collaboration/${serviceId}/${id_customer}`,{});
   }
-
+  rechargeCustomer(balance:BalanceSum,id:number):Observable<any>{
+    return this.http.post(`${this.host}/customers/balance/${id}`,balance)
+  }
 }

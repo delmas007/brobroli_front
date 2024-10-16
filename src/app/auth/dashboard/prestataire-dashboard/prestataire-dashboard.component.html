@@ -6,10 +6,10 @@
                     <div class="w-full flex justify-end"><button (click)="modalWithdrawOpen = !modalWithdrawOpen" class="close-menu"><span></span></button></div>
                     <hr class="my-2">
                     <h4 class="text-center py-1">Retirer votre solde</h4>
-                    <form (ngSubmit)="onWithdrawSubmit()" class="flex flex-col gap-2 justify-between">
+                    <form [formGroup]="sumForm" (ngSubmit)="retrait()" class="flex flex-col gap-2 justify-between">
                         <div class="form-group">
                             <label for="amount">Montant</label>
-                            <input type="text" class="" id="amount">
+                            <input type="number" class="" id="amount" formControlName="sum">
                         </div>
                         <label for="payment-method">Méthode de paiement</label>
                         <select name="" id="" title="Choisir une méthode de paiement">

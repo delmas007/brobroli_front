@@ -7,15 +7,14 @@
       <h4 class="text-center py-1">Collaboration</h4>
       <div class="flex flex-col gap-2 justify-between">
         <p>Vous êtes sur le point de commencer une collaboration
-          . Le montant de la collaboration est de <span class="font-bold">{{abuy}}</span>.
+          . Le montant de la collaboration est de <span class="font-bold">{{formatPrice(abuy)}}</span>.
         </p>
         <p>Votre paiement sera sur un compte bloqué et sera délivré au prestataire lorsque vous aurez validé la fin de la collaboration.</p>
         <p>Vous avez la possibilité d'annuler cette collaboration et vous faire rembourser tant que le prestataire n'a pas encore accepté votre demande.</p>
         <div *ngIf="errorMessage" class="transition-all duration-300 text-center">
           <p class="error-message">{{errorMessage}}</p>
-          <a routerLink="/dashboard-client" class="btn-link w-full flex justify-center transition-all duration-300">{{btnErrorText}}</a>
         </div>
-        <button *ngIf="showPayButton" (click)="onCollabSubmit()" class="btn-link w-full">Payer</button>
+        <button *ngIf="showPayButton" (click)="collaborer()" class="btn-link w-full">Payer</button>
       </div>
     </div>
   </div>

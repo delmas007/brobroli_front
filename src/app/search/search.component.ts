@@ -95,5 +95,21 @@ export class SearchComponent implements OnInit {
   formatPrice(price: number): string {
     return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'XOF' }).format(price);
   }
+  collaborer() {
+    this.service.collaborer(this.serviceId, this.state.authState.id).subscribe(
+      (response: any) => {
+        if (response === null) {
+          this.errorMessage = "Votre solde est insuffisant pour effectuer cette collaboration. Veuillez recharger votre compte.";
+        }else {
+          console.log(response);
+          this.router.navigate(['/profile']);
+        }
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    )
+
+  }
 }
 
