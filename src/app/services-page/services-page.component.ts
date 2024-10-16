@@ -16,6 +16,8 @@ import {StateService} from "../core/services/state.service";
 })
 export class ServicesPageComponent implements OnInit {
   servicesForm!: FormGroup;
+  errorMessage: string = '';
+  successMessage: string = '';
   donnee: Service = {
     typeService: "",
     description: "",
@@ -48,6 +50,7 @@ export class ServicesPageComponent implements OnInit {
       error => {
         console.log(error);
         this.servicesForm.reset();
+        this.successMessage = 'Service ajouté avec succès';
       }
     );
   }
